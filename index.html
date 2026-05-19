@@ -111,6 +111,10 @@ footer{text-align:center;padding:18px 40px;font-size:10px;color:rgba(255,255,255
   </div>
   <div style="display:flex;align-items:center;gap:12px">
     <div class="mbadge" id="hbadge">Abril 2026</div>
+    <button onclick="exportExcel()" style="background:#16A34A;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;border:none;cursor:pointer;letter-spacing:.5px;display:flex;align-items:center;gap:6px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      Excel
+    </button>
     <a href="https://expressounir.github.io/HUB-UNIR/" style="background:rgba(255,255,255,0.15);color:#fff;font-size:11px;font-weight:600;padding:6px 14px;border-radius:20px;text-decoration:none;letter-spacing:.5px;border:1px solid rgba(255,255,255,0.25)">← HUB</a>
   </div>
 </header>
@@ -140,13 +144,12 @@ footer{text-align:center;padding:18px 40px;font-size:10px;color:rgba(255,255,255
       <thead><tr>
         <th>Grupo de Serviço</th>
         <th>Veículos</th>
-        <th>Combustível</th>
         <th>Pneus</th>
         <th>Mão de Obra</th>
         <th>Peças</th>
-        <th>Custo Total</th>
+        <th>Custo Manutenção</th>
         <th>Km Rodado</th>
-        <th>Custo/Km</th>
+        <th>Custo Man./Km</th>
       </tr></thead>
       <tbody id="dash-table"></tbody>
     </table>
@@ -179,16 +182,15 @@ footer{text-align:center;padding:18px 40px;font-size:10px;color:rgba(255,255,255
   <div class="tw" style="-webkit-overflow-scrolling:touch">
     <table style="min-width:1000px">
       <thead><tr>
-        <th onclick="gso('grupo')">Grupo</th>
-        <th onclick="gso('prefixo')">Prefixo</th>
-        <th onclick="gso('ano')">Ano</th>
-        <th onclick="gso('combustivel')">Combustível</th>
-        <th onclick="gso('pneus')">Pneus</th>
-        <th onclick="gso('mao_obra')">Mão de Obra</th>
-        <th onclick="gso('pecas')">Peças</th>
-        <th onclick="gso('total')">Total</th>
-        <th onclick="gso('km')">Km Rodado</th>
-        <th onclick="gso('custo_km')">Custo/Km</th>
+        <th onclick="gso('grupo')" id="th-grupo">Grupo ↕</th>
+        <th onclick="gso('prefixo')" id="th-prefixo">Prefixo ↕</th>
+        <th onclick="gso('ano')" id="th-ano">Ano ↕</th>
+        <th onclick="gso('pneus')" id="th-pneus">Pneus ↕</th>
+        <th onclick="gso('mao_obra')" id="th-mao_obra">Mão de Obra ↕</th>
+        <th onclick="gso('pecas')" id="th-pecas">Peças ↕</th>
+        <th onclick="gso('man')" id="th-man">Manutenção ↕</th>
+        <th onclick="gso('km')" id="th-km">Km Rodado ↕</th>
+        <th onclick="gso('custo_km')" id="th-custo_km">Custo/Km ↕</th>
         <th>Status</th>
       </tr></thead>
       <tbody id="grupo-table"></tbody>
@@ -202,11 +204,10 @@ footer{text-align:center;padding:18px 40px;font-size:10px;color:rgba(255,255,255
   <div style="background:#fff;border:1px solid var(--bd);border-radius:12px;padding:24px;margin-bottom:24px">
     <canvas id="linha-cats" height="280"></canvas>
     <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;padding-top:12px;border-top:1px solid var(--bd)">
-      <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#E8711A;border-radius:2px"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Combustível</span></div>
       <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#DC2626;border-radius:2px"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Peças</span></div>
       <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#16A34A;border-radius:2px"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Mão de Obra</span></div>
       <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#0891B2;border-radius:2px"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Pneus</span></div>
-      <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#7C3AED;border-radius:2px;border-top:2px dashed #7C3AED"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Total</span></div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#7C3AED;border-radius:2px"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Total Manutenção</span></div>
     </div>
   </div>
   <div class="st">Evolução do Custo Total — Jan a Abr 2026</div>
@@ -245,6 +246,7 @@ footer{text-align:center;padding:18px 40px;font-size:10px;color:rgba(255,255,255
 
 <footer>EXPRESSO UNIR · CUSTO DE MANUTENÇÃO · 2026 · Dados do sistema Praxio</footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 // ─── DADOS ───────────────────────────────────────────────────────────────────
 // Grupos de serviço (apenas ônibus — excluído caminhão, apoio, caminhonete)
@@ -932,10 +934,11 @@ function agregaMes(mesData) {
     const pn = vv.reduce((a,v)=>a+v.pn,0);
     const mo = vv.reduce((a,v)=>a+v.mo,0);
     const pc = vv.reduce((a,v)=>a+v.pc,0);
+    const man = pn + mo + pc; // manutenção pura (sem diesel)
     const tot = vv.reduce((a,v)=>a+v.tot,0);
     const km = vv.reduce((a,v)=>a+v.km,0);
-    const ckm = km > 0 ? tot/km : 0;
-    return {id:g.id, nome:GRUPOS_NOMES[g.id]||g.id, veiculos:vv.length, cb, pn, mo, pc, tot, km, ckm, veiArr:vv};
+    const ckm = km > 0 ? man/km : 0; // custo/km só de manutenção
+    return {id:g.id, nome:GRUPOS_NOMES[g.id]||g.id, veiculos:vv.length, cb, pn, mo, pc, man, tot, km, ckm, veiArr:vv};
   });
 }
 
@@ -973,20 +976,20 @@ function renderDash() {
   const totPn = grupos.reduce((a,g)=>a+g.pn,0);
   const totMo = grupos.reduce((a,g)=>a+g.mo,0);
   const totPc = grupos.reduce((a,g)=>a+g.pc,0);
+  const totMan = grupos.reduce((a,g)=>a+g.man,0); // pneus+MO+peças
   const totTot = grupos.reduce((a,g)=>a+g.tot,0);
   const totKm = grupos.reduce((a,g)=>a+g.km,0);
   const totVeic = grupos.reduce((a,g)=>a+g.veiculos,0);
-  const totCkm = totKm>0 ? totTot/totKm : 0;
+  const totCkm = totKm>0 ? totMan/totKm : 0;
 
   // KPIs
   const kpis = [
-    {l:'Custo Total',v:fmtR(totTot),s:MESES[mi]+' 2026',c:'var(--hub-or)'},
-    {l:'Combustível',v:fmtR(totCb),s:((totCb/totTot)*100).toFixed(1)+'% do total',c:'#E8711A'},
-    {l:'Pneus (Reposição)',v:fmtR(totPn),s:((totPn/totTot)*100).toFixed(1)+'% do total',c:'#0891B2'},
-    {l:'Mão de Obra',v:fmtR(totMo),s:((totMo/totTot)*100).toFixed(1)+'% do total',c:'#16A34A'},
-    {l:'Peças',v:fmtR(totPc),s:((totPc/totTot)*100).toFixed(1)+'% do total',c:'#DC2626'},
+    {l:'Custo Manutenção',v:fmtR(totMan),s:MESES[mi]+' 2026 · sem diesel',c:'var(--hub-or)'},
+    {l:'Pneus (Reposição)',v:fmtR(totPn),s:((totPn/totMan)*100).toFixed(1)+'% da manutenção',c:'#0891B2'},
+    {l:'Mão de Obra',v:fmtR(totMo),s:((totMo/totMan)*100).toFixed(1)+'% da manutenção',c:'#16A34A'},
+    {l:'Peças',v:fmtR(totPc),s:((totPc/totMan)*100).toFixed(1)+'% da manutenção',c:'#DC2626'},
     {l:'Km Rodado',v:fmt(totKm),s:'Total da frota',c:'var(--hub-dark)'},
-    {l:'Custo / Km',v:'R$ '+totCkm.toFixed(2),s:'Média geral',c:'#7C3AED'},
+    {l:'Custo Manutenção/Km',v:'R$ '+totCkm.toFixed(2),s:'Peças + MO + Pneus',c:'#7C3AED'},
     {l:'Veículos',v:totVeic,s:'Nos grupos ativos',c:'var(--t2)'},
   ];
   const kg = document.getElementById('kpis'); kg.innerHTML='';
@@ -996,20 +999,12 @@ function renderDash() {
     kg.appendChild(d);
   });
 
-  // Barras por categoria
-  const cats = [
-    {nome:'Combustível',val:totCb,cor:'#E8711A'},
-    {nome:'Peças',val:totPc,cor:'#DC2626'},
-    {nome:'Mão de Obra',val:totMo,cor:'#16A34A'},
-    {nome:'Pneus',val:totPn,cor:'#0891B2'},
-  ];
-  const maxCat = Math.max(...cats.map(c=>c.val));
+  // Barras por categoria (removido bloco não utilizado)
   const cb = document.getElementById('cat-bars'); cb.innerHTML='';
   // Por grupo
   grupos.forEach(g => {
     const card = document.createElement('div'); card.className='cat-card';
     const gCats = [
-      {nome:'Combustível',val:g.cb,cor:'#E8711A'},
       {nome:'Peças',val:g.pc,cor:'#DC2626'},
       {nome:'Mão de Obra',val:g.mo,cor:'#16A34A'},
       {nome:'Pneus',val:g.pn,cor:'#0891B2'},
@@ -1023,7 +1018,7 @@ function renderDash() {
           <span class="bar-val">${fmtR(c.val)}</span>
         </div>`).join('') +
       `<div style="border-top:1px solid var(--bd);margin-top:10px;padding-top:8px;display:flex;justify-content:space-between;font-size:10px;color:var(--t3)">
-        <span><b style="color:var(--tx);font-family:'DM Mono',monospace">${fmtR(g.tot)}</b> total</span>
+        <span><b style="color:var(--tx);font-family:'DM Mono',monospace">${fmtR(g.man)}</b> manutenção</span>
         <span>${fmt(g.km)} km · <b style="color:var(--or)">${g.ckm>0?'R$ '+g.ckm.toFixed(2):'—'}/km</b></span>
       </div>`;
     cb.appendChild(card);
@@ -1037,11 +1032,10 @@ function renderDash() {
     tr.innerHTML = `
       <td style="font-weight:700;color:var(--tx)">${g.nome}</td>
       <td>${g.veiculos}</td>
-      <td class="tf2">${fmtR(g.cb)}</td>
       <td class="tf2">${g.pn>0?fmtR(g.pn):'—'}</td>
       <td class="tf2">${g.mo>0?fmtR(g.mo):'—'}</td>
       <td class="tf2">${g.pc>0?fmtR(g.pc):'—'}</td>
-      <td class="tf2" style="color:var(--or)">${fmtR(g.tot)}</td>
+      <td class="tf2" style="color:var(--or)">${fmtR(g.man)}</td>
       <td style="font-family:'DM Mono',monospace">${fmt(g.km)}</td>
       <td style="font-family:'DM Mono',monospace;font-weight:700;color:var(--az)">${g.ckm>0?'R$ '+g.ckm.toFixed(2):'—'}</td>`;
     tb.appendChild(tr);
@@ -1052,11 +1046,10 @@ function renderDash() {
   tr.innerHTML=`
     <td style="color:var(--hub-dark);font-weight:800">TOTAL GERAL</td>
     <td>${totVeic}</td>
-    <td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(totCb)}</td>
     <td style="font-family:'DM Mono',monospace">${fmtR(totPn)}</td>
     <td style="font-family:'DM Mono',monospace">${fmtR(totMo)}</td>
     <td style="font-family:'DM Mono',monospace">${fmtR(totPc)}</td>
-    <td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(totTot)}</td>
+    <td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(totMan)}</td>
     <td style="font-family:'DM Mono',monospace">${fmt(totKm)}</td>
     <td style="font-family:'DM Mono',monospace;color:var(--az)">R$ ${totCkm.toFixed(2)}</td>`;
   tb.appendChild(tr);
@@ -1096,13 +1089,28 @@ function renderGrupo() {
       const av = ANOS[String(a.p)]||0, bv = ANOS[String(b.p)]||0;
       return (av-bv)*gSortDir;
     }
+    if(gSortKey==='man') {
+      const av = a.pn+a.mo+a.pc, bv = b.pn+b.mo+b.pc;
+      return (av-bv)*gSortDir;
+    }
+    if(gSortKey==='custo_km') {
+      const av = a.km>0?(a.pn+a.mo+a.pc)/a.km:0, bv = b.km>0?(b.pn+b.mo+b.pc)/b.km:0;
+      return (av-bv)*gSortDir;
+    }
     const av = a[gSortKey]||0, bv = b[gSortKey]||0;
     return (av-bv)*gSortDir;
+  });
+  // Update sort arrows
+  document.querySelectorAll('thead th[id]').forEach(th => {
+    const key = th.id.replace('th-','');
+    const base = th.textContent.replace(' ↑','').replace(' ↓','').replace(' ↕','');
+    th.textContent = base + (gSortKey===key ? (gSortDir===1?' ↑':' ↓') : ' ↕');
   });
   document.getElementById('grupo-cnt').textContent = rows.length + ' veículos';
   const tb = document.getElementById('grupo-table'); tb.innerHTML='';
   rows.forEach(v => {
-    const ckm = v.km>0 ? v.tot/v.km : 0;
+    const man_ckm = v.pn + v.mo + v.pc;
+    const ckm = v.km>0 ? man_ckm/v.km : 0;
     // status simples por custo/km vs media do grupo
     let pill = '';
     if(ckm<=0) pill='<span class="pill p-gy">Sem km</span>';
@@ -1111,15 +1119,15 @@ function renderGrupo() {
     else pill='<span class="pill p-ok">Normal</span>';
     const tr = document.createElement('tr');
     tr.onclick = () => openVeiculoModal(v);
+    const man_v = v.pn + v.mo + v.pc;
     tr.innerHTML = `
       <td style="font-size:10px;color:var(--t3)">${v.grupo}</td>
       <td class="tf2">${v.p}</td>
       <td>${anoTag(v.p)}</td>
-      <td>${fmtR(v.cb)}</td>
       <td>${v.pn>0?fmtR(v.pn):'—'}</td>
       <td>${v.mo>0?fmtR(v.mo):'—'}</td>
       <td>${v.pc>0?fmtR(v.pc):'—'}</td>
-      <td style="font-weight:700;color:var(--or)">${fmtR(v.tot)}</td>
+      <td style="font-weight:700;color:var(--or)">${fmtR(man_v)}</td>
       <td style="font-family:'DM Mono',monospace">${v.km>0?fmt(v.km):'—'}</td>
       <td style="font-family:'DM Mono',monospace;font-weight:700;color:var(--az)">${ckm>0?'R$ '+ckm.toFixed(2):'—'}</td>
       <td>${pill}</td>`;
@@ -1136,34 +1144,41 @@ function renderLinhaChart() {
   const canvas = document.getElementById('linha-cats');
   if(!canvas) return;
   const ctx = canvas.getContext('2d');
-  canvas.width = canvas.parentElement.clientWidth - 48;
-  canvas.height = 280;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const dpr = window.devicePixelRatio || 1;
+  const cssW = canvas.parentElement.clientWidth - 48;
+  const cssH = 280;
+  canvas.width = cssW * dpr;
+  canvas.height = cssH * dpr;
+  canvas.style.width = cssW + 'px';
+  canvas.style.height = cssH + 'px';
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, cssW, cssH);
+  // Use CSS dimensions for all drawing
+  const canvasW = cssW;
+  const canvasH = cssH;
 
   // Calc data
   const totais = MESES.map(m => {
     const gs = agregaMes(DATA[m]);
     return {
       mes: m.substring(0,3),
-      cb: gs.reduce((a,g)=>a+g.cb,0),
       pc: gs.reduce((a,g)=>a+g.pc,0),
       mo: gs.reduce((a,g)=>a+g.mo,0),
       pn: gs.reduce((a,g)=>a+g.pn,0),
-      tot: gs.reduce((a,g)=>a+g.tot,0),
+      man: gs.reduce((a,g)=>a+g.man,0),
     };
   });
 
   const series = [
-    {key:'cb', label:'Combustível', cor:'#E8711A', dash:[]},
-    {key:'pc', label:'Peças',       cor:'#DC2626', dash:[]},
-    {key:'mo', label:'Mão de Obra', cor:'#16A34A', dash:[]},
-    {key:'pn', label:'Pneus',       cor:'#0891B2', dash:[]},
-    {key:'tot',label:'Total',       cor:'#7C3AED', dash:[6,4]},
+    {key:'pc', label:'Peças',          cor:'#DC2626', dash:[]},
+    {key:'mo', label:'Mão de Obra',    cor:'#16A34A', dash:[]},
+    {key:'pn', label:'Pneus',          cor:'#0891B2', dash:[]},
+    {key:'man',label:'Total Manutenção',cor:'#7C3AED', dash:[6,4]},
   ];
 
   const pad = {l:80, r:24, t:24, b:48};
-  const W = canvas.width - pad.l - pad.r;
-  const H = canvas.height - pad.t - pad.b;
+  const W = canvasW - pad.l - pad.r;
+  const H = canvasH - pad.t - pad.b;
   const allVals = series.flatMap(s => totais.map(t => t[s.key]));
   const maxV = Math.max(...allVals) * 1.08;
   const minV = 0;
@@ -1186,7 +1201,7 @@ function renderLinhaChart() {
       ? 'R$ ' + (val/1000).toFixed(0) + 'k'
       : 'R$ ' + val.toFixed(0);
     ctx.fillStyle = '#9198B4';
-    ctx.font = '10px Outfit, sans-serif';
+    ctx.font = '500 10px Outfit, sans-serif';
     ctx.textAlign = 'right';
     ctx.fillText(label, pad.l - 8, y + 4);
   }
@@ -1204,7 +1219,7 @@ function renderLinhaChart() {
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.fillStyle = '#4A5068';
-    ctx.font = 'bold 11px Outfit, sans-serif';
+    ctx.font = '700 11px Outfit, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(m.substring(0,3), x, pad.t + H + 20);
   });
@@ -1231,7 +1246,7 @@ function renderLinhaChart() {
     // Line
     ctx.beginPath();
     ctx.strokeStyle = s.cor;
-    ctx.lineWidth = s.dash.length ? 2 : 2.5;
+    ctx.lineWidth = s.dash.length ? 2 : 3;
     ctx.setLineDash(s.dash);
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
@@ -1243,7 +1258,7 @@ function renderLinhaChart() {
     points.forEach((p, i) => {
       // Dot
       ctx.beginPath();
-      ctx.arc(p.x, p.y, 4.5, 0, Math.PI*2);
+      ctx.arc(p.x, p.y, 5, 0, Math.PI*2);
       ctx.fillStyle = '#fff';
       ctx.fill();
       ctx.strokeStyle = s.cor;
@@ -1256,7 +1271,7 @@ function renderLinhaChart() {
           ? (p.val/1000000).toFixed(2)+'M'
           : (p.val/1000).toFixed(0)+'k';
         ctx.fillStyle = s.cor;
-        ctx.font = 'bold 9px DM Mono, monospace';
+        ctx.font = '700 10px DM Mono, monospace';
         ctx.textAlign = 'center';
         ctx.fillText('R$'+label, p.x, p.y - 10);
       }
@@ -1271,34 +1286,32 @@ function renderHistorico() {
     const gs = agregaMes(DATA[m]);
     return {
       mes:m,
-      cb:gs.reduce((a,g)=>a+g.cb,0),
       pn:gs.reduce((a,g)=>a+g.pn,0),
       mo:gs.reduce((a,g)=>a+g.mo,0),
       pc:gs.reduce((a,g)=>a+g.pc,0),
-      tot:gs.reduce((a,g)=>a+g.tot,0),
+      man:gs.reduce((a,g)=>a+g.man,0),
       km:gs.reduce((a,g)=>a+g.km,0),
     };
   });
   const ht = document.getElementById('hist-total');
-  ht.innerHTML = `<thead><tr><th>Mês</th><th>Combustível</th><th>Pneus</th><th>Mão de Obra</th><th>Peças</th><th>Total</th><th>Km Rodado</th><th>Custo/Km</th></tr></thead><tbody>` +
+  ht.innerHTML = `<thead><tr><th>Mês</th><th>Pneus</th><th>Mão de Obra</th><th>Peças</th><th>Total Manutenção</th><th>Km Rodado</th><th>Custo Man./Km</th></tr></thead><tbody>` +
     totaisMes.map(t => `<tr>
       <td>${t.mes}</td>
-      <td>${fmtR(t.cb)}</td>
       <td>${fmtR(t.pn)}</td>
       <td>${fmtR(t.mo)}</td>
       <td>${fmtR(t.pc)}</td>
-      <td style="font-weight:700;color:var(--or)">${fmtR(t.tot)}</td>
+      <td style="font-weight:700;color:var(--or)">${fmtR(t.man)}</td>
       <td>${fmt(t.km)}</td>
-      <td style="font-weight:700;color:var(--az)">R$ ${t.km>0?(t.tot/t.km).toFixed(2):'—'}</td>
+      <td style="font-weight:700;color:var(--az)">R$ ${t.km>0?(t.man/t.km).toFixed(2):'—'}</td>
     </tr>`).join('') + `</tbody>`;
 
   // Cards histórico por categoria
   const hg = document.getElementById('hist-cats'); hg.innerHTML='';
   const cats = [
-    {nome:'Combustível',key:'cb',cor:'#E8711A'},
     {nome:'Peças',key:'pc',cor:'#DC2626'},
     {nome:'Mão de Obra',key:'mo',cor:'#16A34A'},
     {nome:'Pneus',key:'pn',cor:'#0891B2'},
+    {nome:'Total Manutenção',key:'man',cor:'#7C3AED'},
   ];
   cats.forEach(cat => {
     const vals = totaisMes.map(t=>t[cat.key]);
@@ -1323,14 +1336,14 @@ function renderHistorico() {
       const cells = MESES.map(m => {
         const gs = agregaMes(DATA[m]);
         const g = gs.find(x=>x.id===gid);
-        if(g) grandTotal += g.tot;
-        return `<td>${g&&g.tot>0?fmtR(g.tot):'—'}</td>`;
+        if(g) grandTotal += g.man;
+        return `<td>${g&&g.man>0?fmtR(g.man):'—'}</td>`;
       }).join('');
       return grandTotal>0 ? `<tr><td>${GRUPOS_NOMES[gid]}</td>${cells}<td style="font-weight:700;color:var(--or)">${fmtR(grandTotal)}</td></tr>` : '';
     }).join('') +
     `<tr style="font-weight:800;background:#FAFBFD"><td style="color:var(--hub-dark)">TOTAL GERAL</td>` +
-    MESES.map(m=>{const gs=agregaMes(DATA[m]);const t=gs.reduce((a,g)=>a+g.tot,0);return`<td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(t)}</td>`;}).join('') +
-    `<td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(MESES.reduce((a,m)=>{const gs=agregaMes(DATA[m]);return a+gs.reduce((b,g)=>b+g.tot,0);},0))}</td></tr>` +
+    MESES.map(m=>{const gs=agregaMes(DATA[m]);const t=gs.reduce((a,g)=>a+g.man,0);return`<td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(t)}</td>`;}).join('') +
+    `<td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(MESES.reduce((a,m)=>{const gs=agregaMes(DATA[m]);return a+gs.reduce((b,g)=>b+g.man,0);},0))}</td></tr>` +
     `</tbody>`;
   renderLinhaChart();
 }
@@ -1372,7 +1385,8 @@ function renderAnos() {
       grupos.forEach(g => {
         g.veiculos.forEach(v => {
           if(ANOS[String(v.p)] !== ano) return;
-          custo += v.tot; km += v.km;
+          const man_v = v.pn + v.mo + v.pc;
+        custo += man_v; km += v.km;
           cb += v.cb; pn += v.pn; mo += v.mo; pc += v.pc;
           veics.add(v.p);
         });
@@ -1594,6 +1608,77 @@ function openVeiculoModal(v) {
 function closeModal(e) {
   if(e.target===document.getElementById('modal-bg'))
     document.getElementById('modal-bg').classList.remove('open');
+}
+
+// ─── EXCEL EXPORT ────────────────────────────────────────────────────────────
+function exportExcel() {
+  const wb = XLSX.utils.book_new();
+  const mesAtual = MESES[mi];
+
+  // Aba 1: Resumo Geral
+  const resumoRows = [['Mês','Peças (R$)','Mão de Obra (R$)','Pneus (R$)','Total Manutenção (R$)','Km Rodado','Custo Man./Km']];
+  MESES.forEach(m => {
+    const gs = agregaMes(DATA[m]);
+    const pn=gs.reduce((a,g)=>a+g.pn,0), mo=gs.reduce((a,g)=>a+g.mo,0);
+    const pc=gs.reduce((a,g)=>a+g.pc,0), man=gs.reduce((a,g)=>a+g.man,0);
+    const km=gs.reduce((a,g)=>a+g.km,0);
+    resumoRows.push([m,+pc.toFixed(2),+mo.toFixed(2),+pn.toFixed(2),+man.toFixed(2),km,km>0?+(man/km).toFixed(2):0]);
+  });
+  const totR=resumoRows.slice(1).reduce((a,r)=>({pc:a.pc+r[1],mo:a.mo+r[2],pn:a.pn+r[3],man:a.man+r[4],km:a.km+r[5]}),{pc:0,mo:0,pn:0,man:0,km:0});
+  resumoRows.push(['TOTAL',+totR.pc.toFixed(2),+totR.mo.toFixed(2),+totR.pn.toFixed(2),+totR.man.toFixed(2),totR.km,totR.km>0?+(totR.man/totR.km).toFixed(2):0]);
+  const ws1=XLSX.utils.aoa_to_sheet(resumoRows);
+  ws1['!cols']=[{wch:12},{wch:16},{wch:16},{wch:12},{wch:22},{wch:12},{wch:16}];
+  XLSX.utils.book_append_sheet(wb,ws1,'Resumo Geral');
+
+  // Aba 2: Por Grupo
+  const grupos=agregaMes(DATA[mesAtual]);
+  const grupoRows=[['Grupo','Veículos','Peças (R$)','Mão de Obra (R$)','Pneus (R$)','Total Manutenção (R$)','Km Rodado','Custo Man./Km']];
+  grupos.forEach(g=>grupoRows.push([g.nome,g.veiculos,+g.pc.toFixed(2),+g.mo.toFixed(2),+g.pn.toFixed(2),+g.man.toFixed(2),g.km,g.ckm>0?+g.ckm.toFixed(2):0]));
+  const totG=grupos.reduce((a,g)=>({pc:a.pc+g.pc,mo:a.mo+g.mo,pn:a.pn+g.pn,man:a.man+g.man,km:a.km+g.km,v:a.v+g.veiculos}),{pc:0,mo:0,pn:0,man:0,km:0,v:0});
+  grupoRows.push(['TOTAL GERAL',totG.v,+totG.pc.toFixed(2),+totG.mo.toFixed(2),+totG.pn.toFixed(2),+totG.man.toFixed(2),totG.km,totG.km>0?+(totG.man/totG.km).toFixed(2):0]);
+  const ws2=XLSX.utils.aoa_to_sheet(grupoRows);
+  ws2['!cols']=[{wch:32},{wch:10},{wch:14},{wch:16},{wch:12},{wch:22},{wch:12},{wch:14}];
+  XLSX.utils.book_append_sheet(wb,ws2,'Por Grupo - '+mesAtual);
+
+  // Aba 3: Por Veículo
+  const veicRows=[['Grupo','Prefixo','Ano','Peças (R$)','Mão de Obra (R$)','Pneus (R$)','Total Manutenção (R$)','Km Rodado','Custo Man./Km']];
+  grupos.forEach(g=>g.veiArr.forEach(v=>{
+    const ano=ANOS[String(v.p)]||'—';
+    const man_v=v.pn+v.mo+v.pc;
+    veicRows.push([g.nome,v.p,ano,+v.pc.toFixed(2),+v.mo.toFixed(2),+v.pn.toFixed(2),+man_v.toFixed(2),v.km,v.km>0?+(man_v/v.km).toFixed(2):0]);
+  }));
+  const ws3=XLSX.utils.aoa_to_sheet(veicRows);
+  ws3['!cols']=[{wch:32},{wch:10},{wch:6},{wch:14},{wch:16},{wch:12},{wch:22},{wch:12},{wch:14}];
+  XLSX.utils.book_append_sheet(wb,ws3,'Por Veículo - '+mesAtual);
+
+  // Aba 4: Histórico por Grupo
+  const histRows=[['Grupo',...MESES.map(m=>m+' (R$)'),'Total (R$)']];
+  Object.keys(GRUPOS_NOMES).forEach(gid=>{
+    let tot=0;
+    const cells=MESES.map(m=>{const g=agregaMes(DATA[m]).find(x=>x.id===gid);const v=g?g.man:0;tot+=v;return+v.toFixed(2);});
+    if(tot>0) histRows.push([GRUPOS_NOMES[gid],...cells,+tot.toFixed(2)]);
+  });
+  const totH=MESES.map(m=>+agregaMes(DATA[m]).reduce((a,g)=>a+g.man,0).toFixed(2));
+  histRows.push(['TOTAL GERAL',...totH,+totH.reduce((a,b)=>a+b,0).toFixed(2)]);
+  const ws4=XLSX.utils.aoa_to_sheet(histRows);
+  ws4['!cols']=[{wch:32},{wch:16},{wch:16},{wch:16},{wch:16},{wch:16}];
+  XLSX.utils.book_append_sheet(wb,ws4,'Histórico por Grupo');
+
+  // Aba 5: Análise por Ano
+  const anosUnicos=[...new Set(Object.values(ANOS))].filter(a=>a).sort();
+  const anoRows=[['Ano','Faixa',...MESES.map(m=>m+' (R$)'),'Total (R$)','Custo/Km','Veículos']];
+  anosUnicos.forEach(ano=>{
+    let grandT=0,grandKm=0;const veics=new Set();
+    const cells=MESES.map(m=>{let c=0,k=0;DATA[m].grupos.forEach(g=>g.veiculos.forEach(v=>{if(ANOS[String(v.p)]!==ano)return;const mv=v.pn+v.mo+v.pc;c+=mv;k+=v.km;veics.add(v.p);}));grandT+=c;grandKm+=k;return+c.toFixed(2);});
+    if(grandT===0)return;
+    const faixa=ano<=2013?'Antigo':ano<=2018?'Intermediário':'Novo';
+    anoRows.push([ano,faixa,...cells,+grandT.toFixed(2),grandKm>0?+(grandT/grandKm).toFixed(2):0,veics.size]);
+  });
+  const ws5=XLSX.utils.aoa_to_sheet(anoRows);
+  ws5['!cols']=[{wch:6},{wch:14},{wch:16},{wch:16},{wch:16},{wch:16},{wch:16},{wch:12},{wch:10}];
+  XLSX.utils.book_append_sheet(wb,ws5,'Análise por Ano');
+
+  XLSX.writeFile(wb,'Custo_Manutencao_Expresso_Unir.xlsx');
 }
 
 // ─── INIT ────────────────────────────────────────────────────────────────────
