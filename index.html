@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custo de Manutenção · Expresso Unir</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--or:#E8711A;--orL:#FFF0E6;--orM:#FDDCBF;--az:#2D2F8F;--azL:#EEEEF8;--bg:#F4F4F6;--sf:#fff;--bd:#E2E2EA;--tx:#1A1D2E;--t2:#4A5068;--t3:#9198B4;--ok:#16A34A;--okB:#DCFCE7;--wn:#DC2626;--wnB:#FEE2E2;--hub-dark:#2D2F8F;--hub-or:#E8711A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:'Outfit',sans-serif;min-height:100vh}
+header{background:var(--hub-dark);border-bottom:3px solid var(--hub-or);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(45,47,143,.4)}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-divider{width:1px;height:28px;background:rgba(255,255,255,.25)}
+.logo h1{font-size:17px;font-weight:800;color:#fff;letter-spacing:-.3px}
+.logo p{font-size:10px;color:rgba(255,255,255,.55);margin-top:1px;letter-spacing:.3px}
+.mbadge{background:var(--hub-or);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:.3px}
+nav{background:var(--hub-dark);border-bottom:1px solid rgba(255,255,255,.1);padding:0 40px;display:flex;overflow-x:auto}
+nav button{padding:13px 18px;background:none;border:none;border-bottom:2px solid transparent;color:rgba(255,255,255,.5);cursor:pointer;font:500 12px 'Outfit',sans-serif;transition:all .2s;white-space:nowrap}
+nav button:hover{color:rgba(255,255,255,.85)}
+nav button.active{color:#fff;border-bottom-color:var(--hub-or);font-weight:600}
+.msel{background:var(--hub-dark);border-bottom:1px solid rgba(255,255,255,.08);padding:8px 40px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.msel span{font-size:10px;color:rgba(255,255,255,.45);font-weight:600;margin-right:2px;letter-spacing:.5px;text-transform:uppercase}
+.mb{padding:5px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);font:500 11px 'Outfit',sans-serif;cursor:pointer;transition:all .15s}
+.mb:hover{background:rgba(255,255,255,.1);color:#fff}
+.mb.active{background:var(--hub-or);color:#fff;border-color:var(--hub-or)}
+main{padding:24px 40px}
+.tp{display:none}.tp.active{display:block}
+.kg{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px}
+.kpi{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:20px 18px 16px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.kpi:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(45,47,143,.1)}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--kc,var(--hub-or))}
+.kl{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--t3);font-weight:600;margin-bottom:6px}
+.kv{font-size:22px;font-weight:800;line-height:1;color:var(--tx)}
+.kv .u{font-size:11px;font-weight:400;color:var(--t3);margin-left:2px}
+.ks{font-size:10px;color:var(--t3);margin-top:5px}
+.st{font-size:11px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--hub-dark)}
+.st::before{content:'';width:3px;height:14px;background:var(--hub-or);border-radius:2px;flex-shrink:0}
+.st::after{content:'';flex:1;height:1px;background:var(--bd)}
+.tw{overflow-x:auto;background:#fff;border:1px solid var(--bd);border-radius:12px;margin-bottom:24px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse}
+thead th{padding:9px 12px;text-align:left;background:#FAFBFD;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--t3);font-weight:600;border-bottom:1px solid var(--bd);white-space:nowrap;cursor:pointer}
+thead th:hover{color:var(--or)}
+tbody tr{border-bottom:1px solid #F3F4F8;transition:background .1s;cursor:pointer}
+tbody tr:hover{background:#FFF8F4}
+tbody tr:last-child{border-bottom:none}
+td{padding:9px 12px;font-size:12px;color:var(--t2);white-space:nowrap}
+.tf2{font-weight:700;color:var(--tx);font-family:'DM Mono',monospace}
+.pill{display:inline-flex;padding:2px 8px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase}
+.p-hi{background:#FEE2E2;color:#991B1B}
+.p-md{background:#FEF3C7;color:#92400E}
+.p-ok{background:var(--okB);color:var(--ok)}
+.p-gy{background:#F3F4F6;color:var(--t3)}
+.tc{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.si{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:8px 12px;color:var(--tx);font:400 13px 'Outfit',sans-serif;outline:none;flex:1;min-width:160px}
+.si:focus{border-color:var(--or)}
+.fs{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:8px 26px 8px 10px;color:var(--t2);font:400 12px 'Outfit',sans-serif;outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%239198B4' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;background-size:10px}
+.fs:focus{border-color:var(--or)}
+.cnt{font-size:11px;color:var(--t3);background:#fff;border:1px solid var(--bd);padding:5px 10px;border-radius:6px}
+.ht{width:100%;border-collapse:collapse;min-width:700px}
+.ht th,.ht td{padding:9px 14px;font-size:11px}
+.ht th{text-align:right;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--t3);font-weight:600;border-bottom:1px solid var(--bd);background:#FAFBFD}
+.ht th:first-child{text-align:left}
+.ht td{text-align:right;font-family:'DM Mono',monospace;color:var(--t2);border-bottom:1px solid #F3F4F8}
+.ht td:first-child{text-align:left;font-family:'Outfit',sans-serif;font-weight:600;color:var(--tx)}
+.ht tr:last-child td{border-bottom:none}
+.ht tbody tr:hover{background:#FFF8F4}
+/* Cat bars */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:24px}
+.cat-card{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:18px}
+.cat-card h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;color:var(--hub-dark)}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.bar-label{font-size:10px;color:var(--t2);width:80px;flex-shrink:0}
+.bar-wrap{flex:1;height:8px;background:var(--bd);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .6s ease}
+.bar-val{font-family:'DM Mono',monospace;font-size:10px;color:var(--tx);width:60px;text-align:right;flex-shrink:0}
+/* Modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:28px;max-width:700px;width:90%;max-height:85vh;overflow-y:auto;position:relative}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--bd);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px;color:var(--t2);display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:var(--wnB);color:var(--wn)}
+.modal h2{font-size:16px;font-weight:800;margin-bottom:4px}
+.modal p{font-size:11px;color:var(--t3);margin-bottom:20px}
+.mini-kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
+.mini-kpi{background:var(--bg);border-radius:10px;padding:12px 14px}
+.mini-kpi .kl{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--t3);font-weight:600;margin-bottom:4px}
+.mini-kpi .kv{font-size:18px;font-weight:800}
+/* hg */
+.hg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:24px}
+.hc{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:18px}
+.hc h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:14px}
+.hr{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hm{font-size:10px;font-weight:600;color:var(--t3);width:55px;flex-shrink:0}
+.hbw{flex:1}
+.hbt{height:8px;background:var(--bd);border-radius:4px;overflow:hidden}
+.hbf{height:100%;border-radius:4px}
+.hv{font-family:'DM Mono',monospace;font-size:11px;color:var(--tx);width:70px;text-align:right;flex-shrink:0}
+footer{text-align:center;padding:18px 40px;font-size:10px;color:rgba(255,255,255,.4);border-top:1px solid rgba(255,255,255,.1);background:var(--hub-dark);margin-top:16px;letter-spacing:.5px}
+@media(max-width:768px){header,main,nav,.msel,footer{padding-left:14px;padding-right:14px}.kg{grid-template-columns:1fr 1fr}}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="LOGO_UNIR_5.png" alt="Expresso Unir" style="height:52px;object-fit:contain" onerror="this.style.display='none'">
+    <div class="logo-divider"></div>
+    <div><h1>Custo de Manutenção</h1><p>Gestão de Frota · Expresso Unir</p></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="mbadge" id="hbadge">Abril 2026</div>
+    <a href="https://expressounir.github.io/HUB-UNIR/" style="background:rgba(255,255,255,0.15);color:#fff;font-size:11px;font-weight:600;padding:6px 14px;border-radius:20px;text-decoration:none;letter-spacing:.5px;border:1px solid rgba(255,255,255,0.25)">← HUB</a>
+  </div>
+</header>
+
+<nav>
+  <button class="active" onclick="tab('dashboard',this)">Dashboard</button>
+  <button onclick="tab('grupo',this)">Por Grupo</button>
+  <button onclick="tab('historico',this)">Histórico</button>
+  <button onclick="tab('anos',this)">Análise por Ano</button>
+</nav>
+
+<div class="msel">
+  <span>Mês:</span>
+  <div id="mbtns" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+</div>
+
+<main>
+
+<!-- DASHBOARD -->
+<div class="tp active" id="tab-dashboard">
+  <div class="kg" id="kpis"></div>
+  <div class="st">Custo por Categoria de Despesa</div>
+  <div class="cat-grid" id="cat-bars"></div>
+  <div class="st">Resumo por Grupo de Serviço</div>
+  <div class="tw" style="-webkit-overflow-scrolling:touch">
+    <table style="min-width:900px">
+      <thead><tr>
+        <th>Grupo de Serviço</th>
+        <th>Veículos</th>
+        <th>Combustível</th>
+        <th>Pneus</th>
+        <th>Mão de Obra</th>
+        <th>Peças</th>
+        <th>Custo Total</th>
+        <th>Km Rodado</th>
+        <th>Custo/Km</th>
+      </tr></thead>
+      <tbody id="dash-table"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- POR GRUPO -->
+<div class="tp" id="tab-grupo">
+  <div class="tc">
+    <select class="fs" id="grupo-sel" onchange="renderGrupo()">
+      <option value="">Todos os grupos</option>
+    </select>
+    <select class="fs" id="ano-sel" onchange="renderGrupo()">
+      <option value="">Todos os anos</option>
+      <option value="antigo">⚠ Antigos (até 2013)</option>
+      <option value="medio">Intermediários (2014–2018)</option>
+      <option value="novo">✓ Novos (2019+)</option>
+      <option value="2011">2011</option>
+      <option value="2013">2013</option>
+      <option value="2015">2015</option>
+      <option value="2016">2016</option>
+      <option value="2018">2018</option>
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+    </select>
+    <input class="si" type="text" placeholder="Buscar prefixo..." id="grupo-search" oninput="renderGrupo()">
+    <div class="cnt" id="grupo-cnt">—</div>
+  </div>
+  <div class="tw" style="-webkit-overflow-scrolling:touch">
+    <table style="min-width:1000px">
+      <thead><tr>
+        <th onclick="gso('grupo')">Grupo</th>
+        <th onclick="gso('prefixo')">Prefixo</th>
+        <th onclick="gso('ano')">Ano</th>
+        <th onclick="gso('combustivel')">Combustível</th>
+        <th onclick="gso('pneus')">Pneus</th>
+        <th onclick="gso('mao_obra')">Mão de Obra</th>
+        <th onclick="gso('pecas')">Peças</th>
+        <th onclick="gso('total')">Total</th>
+        <th onclick="gso('km')">Km Rodado</th>
+        <th onclick="gso('custo_km')">Custo/Km</th>
+        <th>Status</th>
+      </tr></thead>
+      <tbody id="grupo-table"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- HISTÓRICO -->
+<div class="tp" id="tab-historico">
+  <div class="st">Evolução das Categorias de Custo — Jan a Abr 2026</div>
+  <div style="background:#fff;border:1px solid var(--bd);border-radius:12px;padding:24px;margin-bottom:24px">
+    <canvas id="linha-cats" height="280"></canvas>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;padding-top:12px;border-top:1px solid var(--bd)">
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#E8711A;border-radius:2px"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Combustível</span></div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#DC2626;border-radius:2px"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Peças</span></div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#16A34A;border-radius:2px"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Mão de Obra</span></div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#0891B2;border-radius:2px"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Pneus</span></div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:28px;height:3px;background:#7C3AED;border-radius:2px;border-top:2px dashed #7C3AED"></div><span style="font-size:11px;color:#4A5068;font-weight:600">Total</span></div>
+    </div>
+  </div>
+  <div class="st">Evolução do Custo Total — Jan a Abr 2026</div>
+  <div style="background:#fff;border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:24px;overflow-x:auto">
+    <table class="ht" id="hist-total"></table>
+  </div>
+  <div class="st">Evolução por Categoria de Despesa</div>
+  <div class="hg" id="hist-cats"></div>
+  <div class="st">Evolução por Grupo de Serviço</div>
+  <div style="background:#fff;border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:24px;overflow-x:auto">
+    <table class="ht" id="hist-grupos"></table>
+  </div>
+
+</div>
+
+</main>
+
+<!-- MODAL DETALHE VEÍCULO -->
+<div class="modal-bg" id="modal-bg" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-bg').classList.remove('open')">✕</button>
+    <h2 id="modal-title">—</h2>
+    <p id="modal-sub">—</p>
+    <div class="mini-kpi-grid" id="modal-kpis"></div>
+    <div class="st">Evolução Mensal</div>
+    <div style="overflow-x:auto">
+      <table class="ht" id="modal-hist"></table>
+    </div>
+  </div>
+</div>
+
+<!-- ANÁLISE POR ANO -->
+<div class="tp" id="tab-anos">
+  <div id="anos-content"></div>
+</div>
+
+<footer>EXPRESSO UNIR · CUSTO DE MANUTENÇÃO · 2026 · Dados do sistema Praxio</footer>
+
+<script>
+// ─── DADOS ───────────────────────────────────────────────────────────────────
+// Grupos de serviço (apenas ônibus — excluído caminhão, apoio, caminhonete)
+// Mapeamento: tipo_frota → nome amigável
+const GRUPOS_MAP = {
+  '001_027': 'DER-SJL (OF 1519 Euro V)',
+  '001_032': 'DER-SJL (OF 1721/59)',
+  '001_033': 'DER-SJL (OF 1721 Euro VI)',
+  '001_040': 'DER-SJL (OF 1619 Euro VI)',
+  '005_012': 'Executivo (O500 Euro III)',
+  '005_013': 'Executivo (O500 Euro V)',
+  '005_038': 'Executivo (OF 1726 Euro VI)',
+  '009_029': 'Urbano Padron',
+  '010_019': 'Urbano Articulado',
+  '012_027': 'Municipal PL (OF 1519 Euro V)',
+  '012_032': 'Municipal PL (OF 1721/59)',
+  '013_040': 'Municipal Vespasiano',
+  '014_027': 'DER-PL (OF 1519 Euro V)',
+  '014_033': 'DER-PL (OF 1721 Euro VI)',
+  '014_040': 'DER-PL (OF 1619 Euro VI)',
+  '015_002': 'Convencional (OF 1722)',
+  '015_032': 'Convencional (OF 1721/59)',
+  '015_038': 'Convencional (OF 1726 Euro VI)',
+};
+
+// Dados extraídos dos PDFs — Jan a Abr 2026
+// Cada veículo: {grupo, prefixo, combustivel, pneus, mao_obra, pecas, total, km, custo_km}
+const MESES = ['Janeiro','Fevereiro','Março','Abril'];
+
+const DATA = {
+  Janeiro: {
+    grupos: [
+      {id:'001_027', veiculos:[
+        {p:'14287',cb:5247.13,pn:14.42,mo:193.43,pc:1357.76,tot:6812.74,km:3762},
+        {p:'14289',cb:8104.39,pn:0,mo:44.00,pc:133.43,tot:8281.81,km:6114},
+        {p:'14290',cb:5763.07,pn:0,mo:67.29,pc:81.22,tot:5911.58,km:4443},
+        {p:'14291',cb:7279.88,pn:14.42,mo:37.70,pc:0,tot:7317.58,km:5170},
+        {p:'14292',cb:4444.63,pn:0,mo:102.43,pc:474.62,tot:5021.68,km:3408},
+        {p:'14293',cb:8620.37,pn:0,mo:72.11,pc:247.37,tot:8939.85,km:6297},
+        {p:'14294',cb:11208.57,pn:14.42,mo:131.34,pc:921.91,tot:12276.25,km:8171},
+        {p:'14295',cb:8448.32,pn:14.42,mo:43.58,pc:142.45,tot:8648.76,km:6537},
+      ]},
+      {id:'001_032', veiculos:[
+        {p:'14281',cb:8585.05,pn:0,mo:126.47,pc:1435.76,tot:10147.28,km:6311},
+        {p:'14282',cb:11512.86,pn:14.42,mo:180.84,pc:5685.21,tot:17393.33,km:8186},
+        {p:'14283',cb:9656.48,pn:14.42,mo:35.96,pc:271.05,tot:9977.91,km:6542},
+        {p:'14284',cb:9383.10,pn:14.42,mo:117.39,pc:1284.20,tot:10799.11,km:6476},
+        {p:'14285',cb:9709.39,pn:0,mo:152.24,pc:1117.09,tot:10978.73,km:7088},
+        {p:'14286',cb:3924.32,pn:57.68,mo:137.99,pc:1584.92,tot:5704.91,km:2768},
+      ]},
+      {id:'001_033', veiculos:[
+        {p:'14296',cb:4541.63,pn:28.84,mo:125.35,pc:1363.11,tot:6058.93,km:3109},
+        {p:'14297',cb:9894.59,pn:43.26,mo:142.46,pc:1130.72,tot:11211.03,km:6840},
+        {p:'14298',cb:8166.12,pn:43.26,mo:81.74,pc:886.64,tot:9177.76,km:5604},
+        {p:'14299',cb:4603.36,pn:0,mo:64.02,pc:686.82,tot:5354.20,km:3024},
+        {p:'14300',cb:5683.70,pn:0,mo:117.11,pc:4594.20,tot:10395.01,km:3868},
+        {p:'14301',cb:9850.49,pn:28.84,mo:75.44,pc:799.30,tot:10754.07,km:7022},
+        {p:'14302',cb:6786.30,pn:0,mo:127.77,pc:436.09,tot:7350.16,km:4816},
+        {p:'14303',cb:10317.88,pn:43.26,mo:106.85,pc:563.53,tot:11031.52,km:7219},
+        {p:'14304',cb:9709.39,pn:28.84,mo:91.79,pc:2113.34,tot:11943.37,km:6986},
+        {p:'14305',cb:4321.16,pn:0,mo:104.00,pc:6960.00,tot:11385.16,km:2803},
+        {p:'14306',cb:6455.29,pn:0,mo:124.90,pc:715.82,tot:7296.01,km:4468},
+        {p:'14307',cb:4984.82,pn:14.42,mo:97.80,pc:211.95,tot:5308.99,km:3356},
+      ]},
+      {id:'001_040', veiculos:[
+        {p:'14338',cb:6684.63,pn:14.42,mo:105.55,pc:992.27,tot:7796.87,km:4885},
+      ]},
+      {id:'005_012', veiculos:[
+        {p:'14188',cb:479.76,pn:0,mo:115.45,pc:725.74,tot:1320.95,km:183},
+        {p:'14201',cb:726.18,pn:0,mo:28.28,pc:0,tot:754.46,km:239},
+      ]},
+      {id:'005_013', veiculos:[
+        {p:'14194',cb:7411.00,pn:0,mo:153.81,pc:2778.83,tot:10343.64,km:4853},
+        {p:'14195',cb:9948.22,pn:72.10,mo:186.18,pc:2035.64,tot:12242.14,km:5855},
+        {p:'14204',cb:8672.47,pn:57.68,mo:286.87,pc:2486.71,tot:11503.73,km:6190},
+        {p:'14205',cb:8938.23,pn:43.26,mo:211.58,pc:1565.80,tot:10758.87,km:6260},
+        {p:'14207',cb:8075.14,pn:0,mo:393.34,pc:3059.79,tot:11528.27,km:5490},
+        {p:'14216',cb:8300.15,pn:0,mo:256.87,pc:688.11,tot:9245.14,km:5380},
+        {p:'14217',cb:6988.25,pn:0,mo:147.34,pc:159.96,tot:7295.55,km:4813},
+      ]},
+      {id:'005_038', veiculos:[
+        {p:'14310',cb:5631.06,pn:0,mo:269.81,pc:868.14,tot:6769.01,km:4578},
+        {p:'14311',cb:7852.41,pn:14.42,mo:127.63,pc:1129.56,tot:9124.02,km:6274},
+        {p:'14312',cb:7281.28,pn:0,mo:164.25,pc:983.02,tot:8428.55,km:6015},
+        {p:'14313',cb:9581.03,pn:0,mo:45.99,pc:0,tot:9627.02,km:7914},
+        {p:'14314',cb:10705.53,pn:0,mo:121.92,pc:649.22,tot:11476.67,km:8935},
+      ]},
+      {id:'009_029', veiculos:[
+        {p:'14308',cb:10662.66,pn:0,mo:200.97,pc:34.55,tot:10898.18,km:6236},
+        {p:'14309',cb:11996.47,pn:0,mo:144.44,pc:412.84,tot:12553.75,km:6830},
+      ]},
+      {id:'010_019', veiculos:[
+        {p:'14172',cb:15121.59,pn:57.68,mo:323.87,pc:5632.71,tot:21135.84,km:4634},
+        {p:'14173',cb:12801.72,pn:57.68,mo:274.85,pc:1972.51,tot:15106.76,km:4250},
+        {p:'14174',cb:10724.31,pn:43.26,mo:222.04,pc:3658.90,tot:14648.50,km:3550},
+        {p:'14175',cb:13964.71,pn:0,mo:154.17,pc:1568.24,tot:15687.12,km:4129},
+        {p:'14176',cb:12818.84,pn:0,mo:311.89,pc:3670.79,tot:16801.51,km:3969},
+        {p:'14177',cb:10041.43,pn:0,mo:187.13,pc:1220.06,tot:11448.62,km:3374},
+        {p:'14178',cb:5869.97,pn:0,mo:84.02,pc:1889.42,tot:7843.41,km:1937},
+        {p:'14179',cb:14218.39,pn:0,mo:262.29,pc:1098.53,tot:15579.21,km:4385},
+      ]},
+      {id:'012_027', veiculos:[
+        {p:'301',cb:7953.58,pn:0,mo:170.95,pc:675.21,tot:8799.74,km:5270},
+        {p:'311',cb:4133.68,pn:0,mo:248.83,pc:14520.48,tot:18903.00,km:2460},
+        {p:'480',cb:5145.73,pn:0,mo:89.48,pc:625.64,tot:5860.85,km:3162},
+        {p:'490',cb:5765.28,pn:0,mo:75.15,pc:1756.72,tot:7597.15,km:3589},
+        {p:'500',cb:3973.81,pn:0,mo:234.13,pc:597.27,tot:4805.21,km:2938},
+        {p:'510',cb:4603.85,pn:0,mo:107.67,pc:1965.24,tot:6676.76,km:3153},
+      ]},
+      {id:'012_032', veiculos:[
+        {p:'221',cb:6927.45,pn:0,mo:45.63,pc:1097.50,tot:8070.59,km:3786},
+        {p:'231',cb:9281.49,pn:0,mo:158.62,pc:251.05,tot:9691.16,km:5310},
+        {p:'241',cb:9383.14,pn:0,mo:321.02,pc:4215.41,tot:13919.57,km:5653},
+        {p:'251',cb:7585.90,pn:0,mo:111.87,pc:386.22,tot:8083.99,km:4574},
+        {p:'261',cb:9990.91,pn:0,mo:98.62,pc:1395.60,tot:11485.13,km:6013},
+        {p:'271',cb:7244.06,pn:0,mo:106.89,pc:145.46,tot:7496.41,km:4391},
+        {p:'281',cb:8581.19,pn:0,mo:124.07,pc:747.22,tot:9452.48,km:4828},
+        {p:'291',cb:9179.48,pn:0,mo:152.59,pc:1027.48,tot:10359.54,km:5498},
+        {p:'861',cb:1486.77,pn:0,mo:194.53,pc:15236.47,tot:16917.76,km:836},
+        {p:'871',cb:6341.87,pn:0,mo:171.30,pc:876.34,tot:7389.51,km:3467},
+        {p:'881',cb:5998.40,pn:0,mo:262.66,pc:2454.34,tot:8715.40,km:3572},
+        {p:'891',cb:321.99,pn:0,mo:139.50,pc:15677.59,tot:16139.08,km:124},
+        {p:'901',cb:7740.61,pn:0,mo:78.46,pc:340.33,tot:8159.40,km:4477},
+        {p:'911',cb:7914.10,pn:0,mo:118.46,pc:914.80,tot:8947.37,km:4512},
+        {p:'921',cb:8962.54,pn:0,mo:314.91,pc:2474.14,tot:11751.59,km:4998},
+        {p:'931',cb:9046.47,pn:0,mo:74.10,pc:4877.81,tot:13998.38,km:5033},
+        {p:'941',cb:5006.24,pn:0,mo:189.65,pc:658.20,tot:5854.09,km:2754},
+        {p:'951',cb:6377.68,pn:0,mo:62.70,pc:259.02,tot:6699.39,km:3929},
+        {p:'961',cb:7282.43,pn:0,mo:17.79,pc:230.03,tot:7530.25,km:4253},
+        {p:'971',cb:9452.78,pn:0,mo:226.03,pc:2102.83,tot:11781.63,km:5572},
+        {p:'981',cb:8561.65,pn:0,mo:121.42,pc:773.67,tot:9456.74,km:5036},
+        {p:'991',cb:5845.06,pn:0,mo:128.68,pc:666.97,tot:6640.71,km:3389},
+      ]},
+      {id:'013_040', veiculos:[
+        {p:'101',cb:5009.02,pn:0,mo:68.60,pc:868.21,tot:5945.83,km:3936},
+        {p:'102',cb:5643.97,pn:28.84,mo:42.90,pc:43.20,tot:5758.91,km:4365},
+      ]},
+      {id:'014_027', veiculos:[
+        {p:'14288',cb:3740.69,pn:0,mo:52.86,pc:1505.70,tot:5299.25,km:2964},
+      ]},
+      {id:'014_033', veiculos:[
+        {p:'14325',cb:11622.56,pn:0,mo:55.41,pc:850.46,tot:12528.43,km:8881},
+        {p:'14326',cb:10608.87,pn:0,mo:156.14,pc:1335.91,tot:12100.92,km:8070},
+        {p:'14327',cb:9456.57,pn:0,mo:201.08,pc:1043.97,tot:10701.63,km:7752},
+        {p:'14328',cb:5457.23,pn:0,mo:63.03,pc:2.89,tot:5523.15,km:4315},
+        {p:'14331',cb:11711.59,pn:28.84,mo:113.86,pc:232.41,tot:12086.71,km:9520},
+        {p:'14332',cb:10207.41,pn:28.84,mo:152.59,pc:1277.04,tot:11665.88,km:8688},
+        {p:'14333',cb:8442.67,pn:28.84,mo:122.39,pc:577.45,tot:9171.34,km:6897},
+        {p:'14335',cb:7824.22,pn:28.84,mo:169.15,pc:1569.72,tot:9591.93,km:6673},
+        {p:'14336',cb:6518.11,pn:14.42,mo:104.60,pc:1057.09,tot:7694.22,km:5133},
+      ]},
+      {id:'014_040', veiculos:[
+        {p:'14323',cb:3518.19,pn:14.42,mo:123.36,pc:605.09,tot:4261.06,km:2758},
+        {p:'14324',cb:3794.42,pn:0,mo:98.29,pc:702.92,tot:4595.63,km:3244},
+        {p:'14329',cb:7425.68,pn:28.84,mo:113.32,pc:55.60,tot:7623.44,km:6341},
+        {p:'14330',cb:9145.00,pn:0,mo:38.10,pc:0,tot:9183.10,km:6415},
+        {p:'14334',cb:7173.98,pn:14.42,mo:89.59,pc:1105.46,tot:8383.46,km:6009},
+        {p:'14337',cb:11232.12,pn:0,mo:142.70,pc:205.64,tot:11580.46,km:9964},
+      ]},
+      {id:'015_002', veiculos:[
+        {p:'14258',cb:0,pn:0,mo:38.61,pc:0,tot:38.61,km:0},
+        {p:'14268',cb:0,pn:0,mo:34.57,pc:0,tot:34.57,km:0},
+        {p:'14269',cb:0,pn:14.42,mo:0,pc:3436.26,tot:3450.68,km:0},
+      ]},
+      {id:'015_032', veiculos:[
+        {p:'14193',cb:4616.55,pn:0,mo:136.97,pc:348.03,tot:5101.55,km:3486},
+        {p:'14197',cb:2134.18,pn:14.42,mo:76.38,pc:323.77,tot:2548.74,km:1465},
+        {p:'14198',cb:2684.26,pn:0,mo:216.01,pc:1022.10,tot:3922.37,km:2063},
+        {p:'14266',cb:0,pn:0,mo:7.38,pc:2152.29,tot:2159.67,km:0},
+        {p:'14280',cb:4396.36,pn:0,mo:128.99,pc:366.49,tot:4891.84,km:3384},
+      ]},
+      {id:'015_038', veiculos:[
+        {p:'14315',cb:10356.18,pn:28.84,mo:85.18,pc:486.91,tot:10957.11,km:6928},
+        {p:'14316',cb:9502.13,pn:14.42,mo:83.31,pc:28.80,tot:9628.66,km:6421},
+        {p:'14317',cb:9607.30,pn:0,mo:191.35,pc:1294.41,tot:11093.06,km:6989},
+        {p:'14318',cb:10629.83,pn:0,mo:215.34,pc:1835.11,tot:12680.28,km:7728},
+        {p:'14319',cb:9708.33,pn:28.84,mo:127.57,pc:1064.25,tot:10928.99,km:6661},
+        {p:'14320',cb:8018.89,pn:28.84,mo:75.72,pc:411.59,tot:8535.04,km:5616},
+        {p:'14321',cb:12014.07,pn:14.42,mo:110.95,pc:816.46,tot:12955.90,km:8818},
+        {p:'14322',cb:7569.84,pn:14.42,mo:131.47,pc:1007.13,tot:8722.86,km:5358},
+      ]},
+    ]
+  },
+  Fevereiro: {
+    grupos: [
+      {id:'001_027', veiculos:[
+        {p:'14287',cb:7132.47,pn:43.26,mo:138.40,pc:445.52,tot:7759.65,km:5540},
+        {p:'14289',cb:5830.86,pn:28.84,mo:184.42,pc:421.74,tot:6465.85,km:4159},
+        {p:'14290',cb:5936.39,pn:43.26,mo:172.97,pc:108.70,tot:6261.33,km:4271},
+        {p:'14291',cb:6261.80,pn:14.42,mo:40.37,pc:562.70,tot:6879.29,km:4436},
+        {p:'14292',cb:4968.98,pn:14.42,mo:143.79,pc:2001.53,tot:7128.73,km:3611},
+        {p:'14293',cb:6844.00,pn:0,mo:54.16,pc:3515.60,tot:10413.76,km:4822},
+        {p:'14294',cb:6640.05,pn:0,mo:109.40,pc:868.46,tot:7617.92,km:4897},
+        {p:'14295',cb:3720.14,pn:0,mo:45.72,pc:202.14,tot:3968.01,km:2837},
+      ]},
+      {id:'001_032', veiculos:[
+        {p:'14281',cb:11248.37,pn:0,mo:77.72,pc:221.64,tot:11547.73,km:7424},
+        {p:'14282',cb:9322.34,pn:57.68,mo:44.65,pc:137.41,tot:9562.08,km:6805},
+        {p:'14283',cb:9867.61,pn:57.68,mo:132.65,pc:1216.44,tot:11274.38,km:6692},
+        {p:'14284',cb:9401.58,pn:14.42,mo:129.79,pc:3583.34,tot:13129.13,km:6521},
+        {p:'14285',cb:8504.43,pn:43.26,mo:126.69,pc:688.01,tot:9362.39,km:5529},
+        {p:'14286',cb:4652.37,pn:28.84,mo:103.89,pc:365.56,tot:5150.67,km:3074},
+      ]},
+      {id:'001_033', veiculos:[
+        {p:'14296',cb:10826.22,pn:0,mo:72.04,pc:139.86,tot:11038.13,km:7227},
+        {p:'14297',cb:8038.32,pn:0,mo:94.01,pc:1680.19,tot:9812.51,km:4982},
+        {p:'14298',cb:8346.13,pn:28.84,mo:120.59,pc:1734.43,tot:10229.99,km:5437},
+        {p:'14299',cb:5910.01,pn:28.84,mo:87.91,pc:289.09,tot:6315.85,km:4132},
+        {p:'14300',cb:7514.47,pn:0,mo:154.68,pc:1793.25,tot:9462.39,km:5220},
+        {p:'14301',cb:5470.28,pn:0,mo:72.24,pc:1034.57,tot:6577.08,km:3591},
+        {p:'14302',cb:6200.23,pn:0,mo:98.23,pc:1642.58,tot:7941.04,km:4013},
+        {p:'14303',cb:5980.37,pn:43.26,mo:30.21,pc:97.40,tot:6151.24,km:4051},
+        {p:'14304',cb:7633.76,pn:0,mo:62.42,pc:262.36,tot:7958.55,km:5005},
+        {p:'14305',cb:8407.69,pn:14.42,mo:123.77,pc:530.12,tot:9076.00,km:5836},
+        {p:'14306',cb:8091.17,pn:43.26,mo:124.87,pc:688.07,tot:8947.38,km:5555},
+        {p:'14307',cb:9514.70,pn:0,mo:101.47,pc:7544.89,tot:17161.05,km:6772},
+      ]},
+      {id:'001_040', veiculos:[
+        {p:'14338',cb:9647.74,pn:0,mo:69.01,pc:404.61,tot:10121.36,km:7239},
+      ]},
+      {id:'005_012', veiculos:[
+        {p:'14188',cb:448.20,pn:0,mo:81.21,pc:2470.13,tot:2999.54,km:151},
+        {p:'14201',cb:313.87,pn:0,mo:91.90,pc:2572.68,tot:2978.45,km:142},
+      ]},
+      {id:'005_013', veiculos:[
+        {p:'14194',cb:8267.82,pn:0,mo:125.74,pc:3254.88,tot:11648.44,km:5609},
+        {p:'14195',cb:4303.16,pn:43.26,mo:272.55,pc:5651.86,tot:10270.84,km:2781},
+        {p:'14204',cb:5704.63,pn:0,mo:180.03,pc:4771.43,tot:10656.10,km:4019},
+        {p:'14205',cb:10345.08,pn:0,mo:119.01,pc:3283.60,tot:13747.69,km:7055},
+        {p:'14207',cb:8982.77,pn:0,mo:117.61,pc:3557.01,tot:12657.39,km:6016},
+        {p:'14216',cb:8310.37,pn:43.26,mo:188.16,pc:3855.80,tot:12397.59,km:5446},
+        {p:'14217',cb:5195.04,pn:0,mo:197.05,pc:2950.37,tot:8342.46,km:3494},
+      ]},
+      {id:'005_038', veiculos:[
+        {p:'14310',cb:4562.48,pn:0,mo:144.28,pc:2578.13,tot:7284.88,km:3621},
+        {p:'14311',cb:8522.98,pn:0,mo:118.96,pc:3260.37,tot:11902.31,km:6724},
+        {p:'14312',cb:8900.06,pn:0,mo:68.95,pc:3129.19,tot:12098.20,km:7314},
+        {p:'14313',cb:7005.71,pn:14.42,mo:91.61,pc:2830.80,tot:9942.54,km:5700},
+        {p:'14314',cb:9024.08,pn:0,mo:87.29,pc:2470.13,tot:11581.50,km:7285},
+      ]},
+      {id:'009_029', veiculos:[
+        {p:'14308',cb:8829.29,pn:0,mo:99.20,pc:3270.31,tot:12198.81,km:4973},
+        {p:'14309',cb:12397.01,pn:0,mo:73.84,pc:2708.30,tot:15179.16,km:7038},
+      ]},
+      {id:'010_019', veiculos:[
+        {p:'14172',cb:10902.13,pn:72.10,mo:207.49,pc:4529.23,tot:15710.95,km:3284},
+        {p:'14173',cb:11772.43,pn:0,mo:169.94,pc:2965.89,tot:14908.27,km:3933},
+        {p:'14174',cb:7224.12,pn:0,mo:163.13,pc:5355.45,tot:12742.70,km:2217},
+        {p:'14175',cb:9263.25,pn:0,mo:172.38,pc:2928.83,tot:12364.47,km:3062},
+        {p:'14176',cb:13060.04,pn:0,mo:265.56,pc:3604.46,tot:16930.06,km:4110},
+        {p:'14177',cb:15983.19,pn:0,mo:111.10,pc:3567.93,tot:19662.22,km:5249},
+        {p:'14178',cb:6666.90,pn:0,mo:108.56,pc:5789.30,tot:12564.75,km:2202},
+        {p:'14179',cb:9352.54,pn:0,mo:193.39,pc:5053.20,tot:14599.14,km:2728},
+      ]},
+      {id:'012_027', veiculos:[
+        {p:'301',cb:7165.90,pn:0,mo:65.55,pc:707.17,tot:7938.62,km:4787},
+        {p:'311',cb:7381.22,pn:0,mo:2.38,pc:0,tot:7383.60,km:4862},
+        {p:'480',cb:5968.31,pn:0,mo:31.36,pc:726.35,tot:6726.02,km:3553},
+        {p:'490',cb:5743.18,pn:0,mo:3.91,pc:115.00,tot:5862.09,km:3439},
+        {p:'500',cb:2768.35,pn:0,mo:148.56,pc:4864.24,tot:7781.16,km:1508},
+        {p:'510',cb:4200.23,pn:0,mo:77.71,pc:0,tot:4277.94,km:2795},
+      ]},
+      {id:'012_032', veiculos:[
+        {p:'221',cb:1782.71,pn:0,mo:109.65,pc:16683.30,tot:18575.66,km:993},
+        {p:'231',cb:9045.85,pn:0,mo:50.63,pc:101.32,tot:9197.80,km:5300},
+        {p:'241',cb:8442.76,pn:0,mo:114.18,pc:496.50,tot:9053.44,km:5348},
+        {p:'251',cb:6402.07,pn:0,mo:128.04,pc:131.67,tot:6661.78,km:3827},
+        {p:'261',cb:8102.96,pn:0,mo:144.06,pc:114.02,tot:8361.04,km:4789},
+        {p:'271',cb:7364.40,pn:0,mo:147.64,pc:179.38,tot:7691.43,km:4428},
+        {p:'281',cb:6564.61,pn:0,mo:296.48,pc:3050.61,tot:9911.70,km:8208},
+        {p:'291',cb:5932.83,pn:36.00,mo:147.42,pc:991.47,tot:7107.72,km:3428},
+        {p:'861',cb:5803.84,pn:0,mo:62.71,pc:3790.77,tot:9657.33,km:3289},
+        {p:'871',cb:5927.67,pn:0,mo:113.60,pc:1053.08,tot:7094.35,km:3322},
+        {p:'881',cb:613.20,pn:0,mo:0,pc:0,tot:613.20,km:329},
+        {p:'891',cb:6493.30,pn:0,mo:0,pc:47.82,tot:6541.12,km:3917},
+        {p:'901',cb:8680.73,pn:0,mo:27.41,pc:4.04,tot:8712.18,km:5234},
+        {p:'911',cb:4976.72,pn:0,mo:129.22,pc:0,tot:5105.94,km:2825},
+        {p:'921',cb:5370.09,pn:0,mo:130.82,pc:385.46,tot:5886.37,km:2955},
+        {p:'931',cb:6673.85,pn:24.00,mo:84.02,pc:741.78,tot:7523.64,km:3787},
+        {p:'941',cb:9405.85,pn:0,mo:35.20,pc:285.99,tot:9727.04,km:5596},
+        {p:'951',cb:7195.99,pn:0,mo:36.58,pc:525.50,tot:7758.07,km:4385},
+        {p:'961',cb:6746.16,pn:0,mo:97.36,pc:538.95,tot:7382.47,km:3996},
+        {p:'971',cb:6831.00,pn:0,mo:144.86,pc:954.65,tot:7930.51,km:4002},
+        {p:'981',cb:4989.51,pn:0,mo:114.35,pc:101.47,tot:5205.33,km:2865},
+        {p:'991',cb:7480.95,pn:0,mo:11.54,pc:601.91,tot:8094.40,km:4460},
+      ]},
+      {id:'013_040', veiculos:[
+        {p:'101',cb:4564.43,pn:0,mo:45.68,pc:18.06,tot:4628.16,km:3421},
+        {p:'102',cb:5215.23,pn:0,mo:0,pc:0,tot:5215.23,km:4182},
+      ]},
+      {id:'014_027', veiculos:[
+        {p:'14288',cb:6066.16,pn:0,mo:84.63,pc:0,tot:6150.79,km:5237},
+      ]},
+      {id:'014_033', veiculos:[
+        {p:'14325',cb:9781.61,pn:0,mo:63.51,pc:51.53,tot:9896.65,km:7419},
+        {p:'14326',cb:9063.02,pn:14.42,mo:65.64,pc:371.78,tot:9514.86,km:6926},
+        {p:'14327',cb:9643.72,pn:14.42,mo:31.11,pc:197.60,tot:9886.86,km:7978},
+        {p:'14328',cb:7191.26,pn:0,mo:103.80,pc:136.49,tot:7431.55,km:5772},
+        {p:'14331',cb:8186.21,pn:0,mo:93.63,pc:252.35,tot:8532.19,km:6628},
+        {p:'14332',cb:8519.75,pn:0,mo:104.17,pc:245.65,tot:8869.58,km:7407},
+        {p:'14333',cb:5390.81,pn:0,mo:58.10,pc:36.14,tot:5485.05,km:4480},
+        {p:'14335',cb:7196.95,pn:0,mo:50.87,pc:747.02,tot:7994.85,km:5913},
+        {p:'14336',cb:7957.68,pn:0,mo:68.76,pc:38.75,tot:8065.19,km:6660},
+      ]},
+      {id:'014_040', veiculos:[
+        {p:'14323',cb:5626.71,pn:0,mo:0,pc:0,tot:5626.71,km:4624},
+        {p:'14324',cb:4739.63,pn:14.42,mo:37.82,pc:520.79,tot:5312.65,km:3874},
+        {p:'14329',cb:5426.85,pn:14.42,mo:108.95,pc:696.76,tot:6246.98,km:4513},
+        {p:'14330',cb:7606.27,pn:14.42,mo:39.85,pc:206.59,tot:7867.13,km:5513},
+        {p:'14334',cb:4016.18,pn:14.42,mo:51.62,pc:263.53,tot:4345.75,km:3230},
+        {p:'14337',cb:8675.37,pn:0,mo:48.02,pc:28.30,tot:8751.69,km:7257},
+      ]},
+      {id:'015_002', veiculos:[
+        {p:'14258',cb:809.11,pn:0,mo:0,pc:2470.13,tot:3279.23,km:607},
+        {p:'14269',cb:0,pn:0,mo:28.56,pc:4970.54,tot:4999.10,km:0},
+      ]},
+      {id:'015_032', veiculos:[
+        {p:'14193',cb:2491.95,pn:0,mo:207.68,pc:5046.32,tot:7745.95,km:1869},
+        {p:'14197',cb:2610.95,pn:0,mo:121.43,pc:2937.12,tot:5669.50,km:1842},
+        {p:'14198',cb:3582.44,pn:0,mo:184.52,pc:3435.09,tot:7202.05,km:2730},
+        {p:'14266',cb:0,pn:0,mo:8.81,pc:2470.13,tot:2478.94,km:0},
+        {p:'14280',cb:4500.11,pn:0,mo:95.01,pc:3458.52,tot:8053.64,km:3413},
+      ]},
+      {id:'015_038', veiculos:[
+        {p:'14315',cb:3600.19,pn:0,mo:129.98,pc:4180.65,tot:7910.83,km:2449},
+        {p:'14316',cb:5673.30,pn:0,mo:91.66,pc:2612.25,tot:8377.20,km:3771},
+        {p:'14317',cb:11734.25,pn:0,mo:53.61,pc:2470.13,tot:14257.98,km:8197},
+        {p:'14318',cb:10749.66,pn:0,mo:191.95,pc:2481.46,tot:13423.07,km:7580},
+        {p:'14319',cb:9084.59,pn:0,mo:98.87,pc:2800.01,tot:11983.47,km:6315},
+        {p:'14320',cb:9058.88,pn:0,mo:188.29,pc:2953.98,tot:12201.16,km:6281},
+        {p:'14321',cb:10081.70,pn:0,mo:138.64,pc:2470.13,tot:12690.47,km:7348},
+        {p:'14322',cb:9391.21,pn:0,mo:124.90,pc:2477.04,tot:11993.15,km:6739},
+      ]},
+    ]
+  },
+  Março: {
+    grupos: [
+      {id:'001_027', veiculos:[
+        {p:'14287',cb:11742.95,pn:0,mo:134.37,pc:421.53,tot:12298.85,km:6719},
+        {p:'14289',cb:10006.84,pn:0,mo:75.31,pc:810.41,tot:10892.56,km:5411},
+        {p:'14290',cb:6505.85,pn:0,mo:86.59,pc:178.67,tot:6771.11,km:3628},
+        {p:'14291',cb:8761.04,pn:0,mo:143.60,pc:523.72,tot:9428.37,km:4859},
+        {p:'14292',cb:5040.88,pn:13.96,mo:147.17,pc:14082.55,tot:19284.56,km:2881},
+        {p:'14293',cb:10295.22,pn:55.83,mo:179.43,pc:2476.81,tot:13007.29,km:5691},
+        {p:'14294',cb:7636.30,pn:0,mo:91.66,pc:886.08,tot:8614.05,km:4131},
+        {p:'14295',cb:11765.90,pn:41.88,mo:140.86,pc:21655.50,tot:33604.14,km:6826},
+      ]},
+      {id:'001_032', veiculos:[
+        {p:'14281',cb:14592.03,pn:41.88,mo:158.42,pc:5827.91,tot:20620.23,km:7726},
+        {p:'14282',cb:14657.80,pn:0,mo:202.78,pc:781.50,tot:15642.08,km:8102},
+        {p:'14283',cb:13415.44,pn:0,mo:196.34,pc:605.23,tot:14217.01,km:7550},
+        {p:'14284',cb:12688.72,pn:41.88,mo:345.81,pc:18702.95,tot:31779.36,km:7022},
+        {p:'14285',cb:12377.27,pn:0,mo:117.99,pc:3451.21,tot:15946.47,km:6486},
+        {p:'14286',cb:13969.12,pn:0,mo:84.61,pc:805.65,tot:14859.38,km:7138},
+      ]},
+      {id:'001_033', veiculos:[
+        {p:'14296',cb:14084.48,pn:13.96,mo:108.37,pc:4667.67,tot:18874.47,km:7097},
+        {p:'14297',cb:13242.41,pn:41.88,mo:149.74,pc:981.37,tot:14415.40,km:6292},
+        {p:'14298',cb:14538.02,pn:0,mo:143.81,pc:2366.72,tot:17048.56,km:7564},
+        {p:'14299',cb:7890.19,pn:0,mo:55.97,pc:129.50,tot:8075.66,km:3999},
+        {p:'14300',cb:8859.03,pn:0,mo:91.85,pc:454.11,tot:9404.99,km:4587},
+        {p:'14301',cb:9412.72,pn:13.96,mo:200.64,pc:966.66,tot:10593.98,km:4993},
+        {p:'14302',cb:9747.24,pn:69.79,mo:99.53,pc:673.71,tot:10590.27,km:5191},
+        {p:'14303',cb:9714.23,pn:0,mo:159.04,pc:2117.40,tot:11990.68,km:5176},
+        {p:'14304',cb:14442.07,pn:27.92,mo:100.69,pc:739.75,tot:15310.43,km:7484},
+        {p:'14305',cb:10906.59,pn:0,mo:35.82,pc:0,tot:10942.41,km:5789},
+        {p:'14306',cb:11304.49,pn:27.92,mo:170.53,pc:250.71,tot:11753.65,km:5961},
+        {p:'14307',cb:9285.83,pn:13.96,mo:144.00,pc:2319.18,tot:11762.98,km:4922},
+      ]},
+      {id:'001_040', veiculos:[
+        {p:'14338',cb:13184.73,pn:69.79,mo:86.02,pc:626.30,tot:13966.84,km:7669},
+      ]},
+      {id:'005_012', veiculos:[
+        {p:'14188',cb:0,pn:0,mo:39.62,pc:2381.88,tot:2421.50,km:0},
+        {p:'14201',cb:0,pn:0,mo:86.38,pc:77.82,tot:164.20,km:0},
+      ]},
+      {id:'005_013', veiculos:[
+        {p:'14194',cb:8232.79,pn:69.79,mo:199.39,pc:6127.34,tot:14629.31,km:4388},
+        {p:'14195',cb:13338.61,pn:13.96,mo:315.25,pc:1065.01,tot:14732.82,km:7009},
+        {p:'14204',cb:13613.25,pn:41.88,mo:188.60,pc:2138.16,tot:15981.89,km:6756},
+        {p:'14205',cb:11760.48,pn:55.83,mo:214.99,pc:720.07,tot:12751.37,km:6101},
+        {p:'14207',cb:11625.94,pn:0,mo:181.39,pc:490.13,tot:12297.45,km:5909},
+        {p:'14216',cb:8288.47,pn:153.54,mo:213.33,pc:3331.66,tot:11987.00,km:4017},
+        {p:'14217',cb:7929.53,pn:0,mo:162.74,pc:1075.84,tot:9168.11,km:4032},
+      ]},
+      {id:'005_038', veiculos:[
+        {p:'14310',cb:10824.85,pn:0,mo:268.15,pc:1179.92,tot:12272.92,km:6699},
+        {p:'14311',cb:12455.18,pn:27.92,mo:164.28,pc:867.33,tot:13514.70,km:7540},
+        {p:'14312',cb:11276.47,pn:13.96,mo:133.75,pc:582.63,tot:12006.80,km:6933},
+        {p:'14313',cb:11157.39,pn:27.92,mo:265.27,pc:1230.01,tot:12680.59,km:6928},
+        {p:'14314',cb:12990.21,pn:41.88,mo:215.67,pc:864.44,tot:14112.20,km:8265},
+      ]},
+      {id:'009_029', veiculos:[
+        {p:'14308',cb:14664.76,pn:41.88,mo:204.35,pc:613.67,tot:15524.65,km:6198},
+        {p:'14309',cb:13645.20,pn:27.92,mo:290.96,pc:3943.78,tot:17907.85,km:5935},
+      ]},
+      {id:'010_019', veiculos:[
+        {p:'14172',cb:10574.82,pn:0,mo:261.14,pc:2030.40,tot:12866.35,km:2343},
+        {p:'14173',cb:13145.24,pn:0,mo:402.21,pc:4580.46,tot:18127.91,km:3154},
+        {p:'14174',cb:20931.94,pn:97.71,mo:400.47,pc:5467.07,tot:26897.19,km:5112},
+        {p:'14175',cb:17075.76,pn:13.96,mo:334.10,pc:1823.48,tot:19247.30,km:4193},
+        {p:'14176',cb:19863.82,pn:13.96,mo:134.50,pc:487.50,tot:20499.77,km:4590},
+        {p:'14177',cb:19221.25,pn:0,mo:363.23,pc:4604.17,tot:24188.65,km:4861},
+        {p:'14178',cb:17021.97,pn:13.96,mo:284.67,pc:1406.20,tot:18726.80,km:4383},
+        {p:'14179',cb:14920.97,pn:69.79,mo:405.78,pc:3062.96,tot:18459.50,km:3642},
+      ]},
+      {id:'012_027', veiculos:[
+        {p:'301',cb:9815.46,pn:0,mo:137.18,pc:654.44,tot:10607.08,km:4852},
+        {p:'311',cb:11118.42,pn:0,mo:205.87,pc:996.55,tot:12320.84,km:5450},
+        {p:'480',cb:8814.01,pn:0,mo:125.71,pc:1344.78,tot:10284.50,km:4013},
+        {p:'490',cb:7989.81,pn:0,mo:112.10,pc:279.69,tot:8381.60,km:3860},
+        {p:'500',cb:6838.16,pn:0,mo:98.00,pc:3581.81,tot:10517.97,km:3323},
+        {p:'510',cb:6305.79,pn:0,mo:177.82,pc:229.83,tot:6713.44,km:3382},
+      ]},
+      {id:'012_032', veiculos:[
+        {p:'221',cb:8540.36,pn:0,mo:190.42,pc:6445.32,tot:15176.10,km:3594},
+        {p:'231',cb:7058.54,pn:0,mo:146.17,pc:2412.83,tot:9617.54,km:2988},
+        {p:'241',cb:11175.28,pn:0,mo:147.27,pc:527.26,tot:11849.81,km:5357},
+        {p:'251',cb:7574.18,pn:0,mo:44.14,pc:229.83,tot:7848.15,km:3401},
+        {p:'261',cb:8801.74,pn:0,mo:109.52,pc:400.21,tot:9311.47,km:3994},
+        {p:'271',cb:11124.32,pn:0,mo:133.96,pc:990.77,tot:12249.05,km:5112},
+        {p:'281',cb:10166.48,pn:0,mo:144.37,pc:398.59,tot:10709.43,km:35},
+        {p:'291',cb:13563.23,pn:0,mo:190.04,pc:1037.91,tot:14791.19,km:6198},
+        {p:'861',cb:9058.37,pn:0,mo:85.18,pc:90.05,tot:9233.60,km:3951},
+        {p:'871',cb:8292.07,pn:0,mo:135.87,pc:980.92,tot:9408.86,km:3479},
+        {p:'881',cb:11437.12,pn:0,mo:120.77,pc:3360.07,tot:14917.95,km:5031},
+        {p:'891',cb:10762.25,pn:0,mo:156.87,pc:683.86,tot:11602.98,km:4802},
+        {p:'901',cb:10566.88,pn:0,mo:127.29,pc:142.81,tot:10836.98,km:4598},
+        {p:'911',cb:10607.65,pn:0,mo:91.27,pc:1201.55,tot:11900.46,km:4563},
+        {p:'921',cb:8388.30,pn:0,mo:118.80,pc:171.61,tot:8678.71,km:3642},
+        {p:'931',cb:9328.95,pn:0,mo:87.84,pc:766.09,tot:10182.89,km:3709},
+        {p:'941',cb:10017.20,pn:0,mo:201.94,pc:939.20,tot:11158.34,km:4165},
+        {p:'951',cb:10155.65,pn:0,mo:225.78,pc:789.67,tot:11171.10,km:4793},
+        {p:'961',cb:5402.84,pn:0,mo:91.81,pc:678.59,tot:6173.24,km:2294},
+        {p:'971',cb:7295.89,pn:0,mo:186.26,pc:4442.49,tot:11924.64,km:3332},
+        {p:'981',cb:8610.71,pn:0,mo:51.31,pc:1540.10,tot:10202.13,km:3818},
+        {p:'991',cb:7892.07,pn:0,mo:53.15,pc:114.74,tot:8059.96,km:3102},
+      ]},
+      {id:'013_040', veiculos:[
+        {p:'101',cb:6471.25,pn:13.96,mo:126.95,pc:206.17,tot:6818.33,km:3829},
+        {p:'102',cb:8178.46,pn:0,mo:122.73,pc:2357.03,tot:10658.22,km:4917},
+      ]},
+      {id:'014_027', veiculos:[
+        {p:'14288',cb:10999.89,pn:27.92,mo:58.98,pc:1434.15,tot:12520.93,km:7186},
+      ]},
+      {id:'014_033', veiculos:[
+        {p:'14325',cb:14408.51,pn:0,mo:127.88,pc:1135.05,tot:15671.44,km:8326},
+        {p:'14326',cb:9897.34,pn:0,mo:139.74,pc:761.16,tot:10798.23,km:5688},
+        {p:'14327',cb:14720.38,pn:55.83,mo:92.21,pc:726.61,tot:15595.03,km:9379},
+        {p:'14328',cb:11459.76,pn:0,mo:156.87,pc:1122.74,tot:12739.37,km:6915},
+        {p:'14331',cb:12856.81,pn:0,mo:56.18,pc:503.09,tot:13416.08,km:8233},
+        {p:'14332',cb:15155.13,pn:41.88,mo:51.35,pc:164.19,tot:15412.54,km:9623},
+        {p:'14333',cb:4690.68,pn:27.92,mo:104.00,pc:135.74,tot:4958.34,km:2738},
+        {p:'14335',cb:9890.33,pn:27.92,mo:53.69,pc:181.11,tot:10153.05,km:5874},
+        {p:'14336',cb:11593.57,pn:13.96,mo:35.44,pc:219.19,tot:11862.17,km:7259},
+      ]},
+      {id:'014_040', veiculos:[
+        {p:'14323',cb:7420.73,pn:0,mo:22.39,pc:2040.51,tot:9483.63,km:4752},
+        {p:'14324',cb:3444.88,pn:0,mo:56.79,pc:1825.60,tot:5327.27,km:2198},
+        {p:'14329',cb:12844.24,pn:0,mo:143.02,pc:1744.10,tot:14731.36,km:8071},
+        {p:'14330',cb:12589.07,pn:27.92,mo:116.53,pc:836.85,tot:13570.37,km:6970},
+        {p:'14334',cb:8738.10,pn:0,mo:101.04,pc:0,tot:8839.14,km:5253},
+        {p:'14337',cb:11377.77,pn:0,mo:163.88,pc:902.37,tot:12444.03,km:7113},
+      ]},
+      {id:'015_002', veiculos:[
+        {p:'14247',cb:689.11,pn:0,mo:0,pc:51.42,tot:740.53,km:378},
+        {p:'14258',cb:0,pn:0,mo:82.26,pc:51.42,tot:133.68,km:0},
+        {p:'14269',cb:0,pn:0,mo:19.90,pc:614.48,tot:634.38,km:0},
+      ]},
+      {id:'015_032', veiculos:[
+        {p:'14193',cb:6659.62,pn:27.92,mo:81.38,pc:79.71,tot:6848.63,km:3962},
+        {p:'14197',cb:642.96,pn:13.96,mo:31.28,pc:364.22,tot:1052.43,km:412},
+        {p:'14198',cb:4983.20,pn:13.96,mo:123.12,pc:278.79,tot:5399.08,km:2799},
+        {p:'14280',cb:2922.45,pn:0,mo:141.50,pc:745.53,tot:3809.48,km:1684},
+      ]},
+      {id:'015_038', veiculos:[
+        {p:'14315',cb:17330.31,pn:13.96,mo:156.90,pc:616.38,tot:18117.55,km:8932},
+        {p:'14316',cb:14531.23,pn:0,mo:203.06,pc:1242.23,tot:15976.52,km:7427},
+        {p:'14317',cb:12932.95,pn:27.92,mo:198.68,pc:1210.47,tot:14370.01,km:6808},
+        {p:'14318',cb:15860.10,pn:0,mo:108.89,pc:625.00,tot:16593.99,km:8648},
+        {p:'14319',cb:12766.12,pn:0,mo:202.90,pc:849.80,tot:13818.81,km:6919},
+        {p:'14320',cb:12394.58,pn:13.96,mo:175.33,pc:484.77,tot:13068.64,km:6690},
+        {p:'14321',cb:13813.06,pn:0,mo:303.52,pc:808.12,tot:14924.70,km:7409},
+        {p:'14322',cb:4455.29,pn:0,mo:35.57,pc:106.42,tot:4597.28,km:2403},
+      ]},
+    ]
+  },
+  Abril: {
+    grupos: [
+      {id:'001_027', veiculos:[
+        {p:'14287',cb:7864.24,pn:13.96,mo:43.45,pc:261.34,tot:8182.99,km:4802},
+        {p:'14289',cb:8541.18,pn:41.88,mo:52.44,pc:483.71,tot:9119.20,km:5290},
+        {p:'14290',cb:6749.61,pn:41.88,mo:126.21,pc:607.91,tot:7525.61,km:4138},
+        {p:'14291',cb:9280.72,pn:27.92,mo:48.36,pc:122.57,tot:9479.57,km:5894},
+        {p:'14292',cb:6405.88,pn:27.92,mo:94.04,pc:565.53,tot:7093.37,km:4110},
+        {p:'14293',cb:7312.08,pn:27.92,mo:44.79,pc:1644.29,tot:9029.08,km:4443},
+        {p:'14294',cb:7400.57,pn:0,mo:60.29,pc:841.04,tot:8301.89,km:4612},
+        {p:'14295',cb:10395.24,pn:0,mo:125.63,pc:2213.75,tot:12734.62,km:6867},
+      ]},
+      {id:'001_032', veiculos:[
+        {p:'14281',cb:9686.95,pn:27.92,mo:61.66,pc:913.03,tot:10689.56,km:5795},
+        {p:'14282',cb:10166.08,pn:13.96,mo:153.66,pc:4444.23,tot:14777.93,km:6258},
+        {p:'14283',cb:12619.12,pn:0,mo:42.32,pc:111.32,tot:12772.76,km:7355},
+        {p:'14284',cb:12374.29,pn:0,mo:43.61,pc:1546.52,tot:13964.42,km:7445},
+        {p:'14285',cb:10207.75,pn:27.92,mo:206.54,pc:1444.85,tot:11887.06,km:5770},
+        {p:'14286',cb:8187.03,pn:0,mo:117.00,pc:1236.16,tot:9540.19,km:5170},
+      ]},
+      {id:'001_033', veiculos:[
+        {p:'14296',cb:9009.90,pn:13.96,mo:92.24,pc:509.48,tot:9625.58,km:5069},
+        {p:'14297',cb:12384.71,pn:27.92,mo:82.65,pc:2049.80,tot:14545.07,km:6350},
+        {p:'14298',cb:8892.99,pn:13.96,mo:143.83,pc:4895.61,tot:13946.39,km:5168},
+        {p:'14299',cb:6539.47,pn:27.92,mo:114.24,pc:2537.08,tot:9218.71,km:3755},
+        {p:'14300',cb:6905.85,pn:13.96,mo:91.03,pc:168.77,tot:7179.61,km:3817},
+        {p:'14301',cb:8634.92,pn:27.92,mo:78.26,pc:670.01,tot:9411.11,km:5274},
+        {p:'14302',cb:7895.38,pn:13.96,mo:70.52,pc:13.96,tot:7993.82,km:4595},
+        {p:'14303',cb:8009.96,pn:27.92,mo:40.19,pc:247.61,tot:8325.68,km:4852},
+        {p:'14304',cb:12978.53,pn:41.88,mo:112.32,pc:3169.12,tot:16301.84,km:7727},
+        {p:'14305',cb:8697.42,pn:41.88,mo:85.81,pc:688.81,tot:9513.92,km:5123},
+        {p:'14306',cb:8735.83,pn:27.92,mo:69.58,pc:188.57,tot:9021.90,km:5029},
+        {p:'14307',cb:7447.49,pn:0,mo:31.11,pc:72.50,tot:7551.10,km:4257},
+      ]},
+      {id:'001_040', veiculos:[
+        {p:'14338',cb:12343.15,pn:27.92,mo:75.25,pc:157.67,tot:12603.98,km:7652},
+      ]},
+      {id:'005_012', veiculos:[
+        {p:'14188',cb:529.71,pn:0,mo:43.10,pc:40.76,tot:613.58,km:307},
+        {p:'14201',cb:863.70,pn:0,mo:25.38,pc:38.36,tot:927.44,km:285},
+      ]},
+      {id:'005_013', veiculos:[
+        {p:'14194',cb:9880.74,pn:55.83,mo:223.45,pc:950.52,tot:11110.55,km:5788},
+        {p:'14195',cb:9568.29,pn:0,mo:148.92,pc:941.92,tot:10659.13,km:5361},
+        {p:'14204',cb:8200.74,pn:0,mo:122.66,pc:3761.40,tot:12084.80,km:4723},
+        {p:'14205',cb:13649.46,pn:0,mo:197.62,pc:2698.75,tot:16545.83,km:7845},
+        {p:'14207',cb:8733.33,pn:69.79,mo:324.86,pc:6027.77,tot:15155.76,km:5069},
+        {p:'14216',cb:7411.39,pn:27.92,mo:135.64,pc:573.04,tot:8147.99,km:3944},
+        {p:'14217',cb:8185.09,pn:13.96,mo:206.08,pc:1112.49,tot:9517.62,km:4500},
+      ]},
+      {id:'005_038', veiculos:[
+        {p:'14310',cb:10737.16,pn:13.96,mo:97.65,pc:302.64,tot:11151.41,km:7359},
+        {p:'14311',cb:9178.70,pn:0,mo:150.85,pc:564.69,tot:9894.25,km:5957},
+        {p:'14312',cb:11269.01,pn:27.92,mo:76.67,pc:27.92,tot:11401.52,km:7801},
+        {p:'14313',cb:10557.77,pn:0,mo:172.60,pc:1083.84,tot:11814.21,km:7114},
+        {p:'14314',cb:10109.10,pn:0,mo:60.90,pc:480.38,tot:10650.38,km:6904},
+      ]},
+      {id:'009_029', veiculos:[
+        {p:'14308',cb:16241.94,pn:0,mo:109.08,pc:872.36,tot:17223.38,km:7812},
+        {p:'14309',cb:12666.16,pn:27.92,mo:145.23,pc:3859.82,tot:16699.12,km:5954},
+      ]},
+      {id:'010_019', veiculos:[
+        {p:'14172',cb:14784.69,pn:139.58,mo:277.04,pc:1018.99,tot:16220.31,km:3665},
+        {p:'14173',cb:3676.22,pn:0,mo:276.58,pc:601.73,tot:4554.52,km:886},
+        {p:'14174',cb:17390.78,pn:55.83,mo:198.26,pc:1608.39,tot:19253.26,km:4608},
+        {p:'14175',cb:2796.89,pn:0,mo:126.18,pc:4968.57,tot:7891.64,km:728},
+        {p:'14176',cb:21597.45,pn:41.88,mo:223.02,pc:6544.84,tot:28407.19,km:5742},
+        {p:'14177',cb:16137.16,pn:0,mo:148.02,pc:974.84,tot:17260.02,km:4199},
+        {p:'14178',cb:13650.79,pn:0,mo:154.35,pc:4256.59,tot:18061.72,km:3835},
+        {p:'14179',cb:18657.96,pn:55.83,mo:321.44,pc:5322.97,tot:24358.21,km:4871},
+      ]},
+      {id:'012_027', veiculos:[
+        {p:'301',cb:9121.92,pn:0,mo:21.32,pc:310.28,tot:9453.52,km:5029},
+        {p:'311',cb:8208.29,pn:0,mo:74.75,pc:3284.94,tot:11567.98,km:4625},
+        {p:'480',cb:6428.27,pn:0,mo:28.38,pc:1255.88,tot:7712.54,km:3463},
+        {p:'490',cb:7271.09,pn:0,mo:54.65,pc:887.40,tot:8213.13,km:3545},
+        {p:'500',cb:7852.45,pn:0,mo:147.07,pc:1361.02,tot:9360.54,km:4109},
+        {p:'510',cb:8100.35,pn:0,mo:81.52,pc:558.48,tot:8740.35,km:4771},
+      ]},
+      {id:'012_032', veiculos:[
+        {p:'221',cb:8279.37,pn:0,mo:28.79,pc:608.64,tot:8916.80,km:4152},
+        {p:'231',cb:8763.45,pn:0,mo:111.53,pc:2404.28,tot:11279.26,km:4508},
+        {p:'241',cb:6586.47,pn:0,mo:46.98,pc:3896.86,tot:10530.31,km:3438},
+        {p:'251',cb:9976.33,pn:0,mo:29.54,pc:398.15,tot:10404.02,km:5137},
+        {p:'261',cb:9139.32,pn:0,mo:7.34,pc:226.11,tot:9372.77,km:4608},
+        {p:'271',cb:9216.52,pn:0,mo:182.06,pc:1775.86,tot:11174.44,km:4927},
+        {p:'281',cb:11659.80,pn:0,mo:76.35,pc:500.55,tot:12236.70,km:5517},
+        {p:'291',cb:8748.58,pn:0,mo:65.27,pc:1099.80,tot:9913.65,km:4300},
+        {p:'861',cb:6208.70,pn:0,mo:49.44,pc:277.31,tot:6535.45,km:2961},
+        {p:'871',cb:6454.48,pn:0,mo:105.68,pc:4003.65,tot:10563.81,km:2998},
+        {p:'881',cb:6512.75,pn:0,mo:59.53,pc:355.23,tot:6927.51,km:3221},
+        {p:'891',cb:11767.16,pn:0,mo:24.81,pc:1551.99,tot:13343.96,km:6090},
+        {p:'901',cb:7835.37,pn:0,mo:88.39,pc:1597.46,tot:9521.22,km:3798},
+        {p:'911',cb:4857.08,pn:0,mo:29.19,pc:593.30,tot:5479.57,km:2336},
+        {p:'921',cb:5412.87,pn:0,mo:29.69,pc:1074.99,tot:6517.55,km:2432},
+        {p:'931',cb:6178.69,pn:0,mo:5.87,pc:92.58,tot:6277.14,km:3267},
+        {p:'941',cb:8259.12,pn:0,mo:247.30,pc:1052.25,tot:9558.67,km:3887},
+        {p:'951',cb:6877.34,pn:0,mo:46.95,pc:690.06,tot:7614.34,km:3647},
+        {p:'961',cb:7959.87,pn:0,mo:73.66,pc:1259.21,tot:9292.74,km:3954},
+        {p:'971',cb:7124.33,pn:0,mo:82.70,pc:623.22,tot:7830.26,km:3609},
+        {p:'981',cb:1086.28,pn:0,mo:64.96,pc:886.19,tot:2037.43,km:438},
+        {p:'991',cb:7541.18,pn:0,mo:23.88,pc:284.76,tot:7849.82,km:3946},
+      ]},
+      {id:'013_040', veiculos:[
+        {p:'101',cb:5760.09,pn:13.96,mo:81.83,pc:13.96,tot:5869.83,km:3811},
+        {p:'102',cb:6426.72,pn:0,mo:26.77,pc:2.68,tot:6456.16,km:4332},
+      ]},
+      {id:'014_027', veiculos:[
+        {p:'14288',cb:6518.39,pn:27.92,mo:133.21,pc:1218.71,tot:7898.23,km:4506},
+      ]},
+      {id:'014_033', veiculos:[
+        {p:'14325',cb:10736.30,pn:13.96,mo:27.81,pc:18.61,tot:10796.69,km:6935},
+        {p:'14326',cb:3185.86,pn:0,mo:64.74,pc:0,tot:3250.60,km:2060},
+        {p:'14327',cb:14214.69,pn:27.92,mo:14.00,pc:677.92,tot:14934.52,km:9326},
+        {p:'14328',cb:6994.68,pn:13.96,mo:33.51,pc:85.01,tot:7127.15,km:4514},
+        {p:'14331',cb:11594.09,pn:0,mo:156.09,pc:4356.23,tot:16106.41,km:7897},
+        {p:'14332',cb:10204.08,pn:27.92,mo:87.92,pc:1941.08,tot:12261.00,km:7175},
+        {p:'14333',cb:5546.53,pn:0,mo:39.05,pc:139.72,tot:5725.30,km:3752},
+        {p:'14335',cb:11779.23,pn:13.96,mo:166.05,pc:653.74,tot:12612.98,km:8480},
+        {p:'14336',cb:10791.25,pn:27.92,mo:61.30,pc:508.30,tot:11388.76,km:7449},
+      ]},
+      {id:'014_040', veiculos:[
+        {p:'14323',cb:5110.40,pn:0,mo:0,pc:0,tot:5110.40,km:3468},
+        {p:'14324',cb:9589.28,pn:0,mo:88.19,pc:564.62,tot:10242.09,km:6999},
+        {p:'14329',cb:9693.27,pn:41.88,mo:78.45,pc:93.22,tot:9906.82,km:6482},
+        {p:'14330',cb:13530.47,pn:0,mo:28.20,pc:27.02,tot:13585.69,km:8100},
+        {p:'14334',cb:8600.82,pn:27.92,mo:35.13,pc:27.92,tot:8691.79,km:5737},
+        {p:'14337',cb:9587.70,pn:27.92,mo:30.97,pc:97.78,tot:9744.36,km:6502},
+      ]},
+      {id:'015_002', veiculos:[
+        {p:'14258',cb:895.27,pn:0,mo:68.98,pc:106.14,tot:1070.39,km:525},
+      ]},
+      {id:'015_032', veiculos:[
+        {p:'14193',cb:4036.74,pn:27.92,mo:82.46,pc:194.53,tot:4341.65,km:2594},
+        {p:'14197',cb:1451.52,pn:0,mo:34.99,pc:37.90,tot:1524.41,km:686},
+        {p:'14198',cb:2113.61,pn:27.92,mo:114.46,pc:3059.44,tot:5315.43,km:1272},
+        {p:'14242',cb:381.50,pn:0,mo:0,pc:0,tot:381.50,km:138},
+        {p:'14266',cb:603.87,pn:0,mo:16.67,pc:0,tot:620.54,km:205},
+        {p:'14280',cb:1144.61,pn:0,mo:119.67,pc:373.31,tot:1637.59,km:681},
+      ]},
+      {id:'015_038', veiculos:[
+        {p:'14315',cb:9551.22,pn:13.96,mo:167.31,pc:58.82,tot:9791.31,km:5572},
+        {p:'14316',cb:15020.73,pn:0,mo:182.57,pc:801.75,tot:16005.06,km:8115},
+        {p:'14317',cb:12041.41,pn:13.96,mo:81.43,pc:13.96,tot:12150.76,km:6947},
+        {p:'14318',cb:12862.41,pn:55.83,mo:115.03,pc:301.29,tot:13334.57,km:7560},
+        {p:'14319',cb:15306.46,pn:27.92,mo:98.32,pc:659.32,tot:16092.02,km:9002},
+        {p:'14320',cb:12333.02,pn:41.88,mo:101.94,pc:336.21,tot:12813.04,km:7173},
+        {p:'14321',cb:10102.76,pn:13.96,mo:89.93,pc:1054.97,tot:11261.62,km:5945},
+        {p:'14322',cb:10998.24,pn:13.96,mo:127.79,pc:984.06,tot:12124.05,km:6512},
+      ]},
+    ]
+  }
+};
+
+
+// ─── ANOS DOS VEÍCULOS (fonte: CTA) ──────────────────────────────────────────
+const ANOS = {
+  '14201':2011,'2710':2011,'14268':2011,'14265':2011,'14258':2011,'14247':2011,'14269':2011,
+  '14188':2011,'821':2011,'720':2011,'730':2011,'801':2011,'771':2011,'831':2011,'740':2011,'710':2011,
+  '981':2016,'961':2016,'221':2016,'891':2016,'901':2016,'241':2016,'291':2016,'991':2016,
+  '951':2016,'281':2016,'971':2016,'261':2016,'271':2016,'231':2016,'251':2016,
+  '14204':2013,'14207':2013,'14205':2013,'14266':2013,'14242':2013,'14280':2013,
+  '14177':2013,'14174':2013,'14175':2013,'14176':2013,'14172':2013,'14173':2013,'14178':2013,'14179':2013,
+  '881':2015,'861':2015,'871':2015,'851':2015,'841':2015,'14197':2015,'14193':2015,'14198':2015,
+  '14194':2015,'14195':2015,'921':2015,'911':2015,'931':2015,'14217':2015,'14216':2015,
+  '941':2016,'500':2018,'490':2018,'510':2018,'480':2018,'311':2018,'301':2018,
+  '14287':2022,'14290':2022,'14289':2022,'14288':2022,'14285':2022,'14284':2022,'14283':2022,
+  '14286':2022,'14281':2022,'14282':2022,'14294':2022,'14292':2022,'14293':2022,'14295':2022,'14291':2022,
+  '14296':2023,'14297':2023,'14300':2023,'14299':2023,'14298':2023,'14305':2023,'14302':2023,
+  '14303':2023,'14301':2023,'14306':2023,'14307':2023,'14304':2023,'14309':2023,'14308':2023,
+  '14328':2024,'14320':2024,'14318':2024,'14327':2024,'14310':2024,'14317':2024,'14322':2024,
+  '14311':2024,'14319':2024,'14321':2024,'14312':2024,'14316':2024,'101':2024,'14315':2024,
+  '14323':2024,'14326':2024,'14325':2024,'14313':2024,'14314':2024,'14331':2024,'102':2024,
+  '14336':2024,'14334':2024,'14338':2024,'14335':2024,'14324':2024,'14332':2024,'14329':2024,
+  '14330':2024,'14333':2024,'14337':2024,
+};
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+const GRUPOS_NOMES = GRUPOS_MAP;
+const fmtR = n => 'R$ ' + (n||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmt  = n => Math.round(n||0).toLocaleString('pt-BR');
+function anoTag(p) {
+  const a = ANOS[String(p)];
+  if(!a) return '<span style="background:#F3F4F6;color:#9198B4;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px">—</span>';
+  if(a<=2013) return '<span style="background:#FEF3C7;color:#92400E;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px">'+a+' ⚠</span>';
+  if(a<=2018) return '<span style="background:#EEEEF8;color:#2D2F8F;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px">'+a+'</span>';
+  return '<span style="background:#DCFCE7;color:#16A34A;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px">'+a+' ✓</span>';
+}
+const CAT_CORES = {
+  'DER-SJL':'#2D2F8F','Executivo':'#E8711A','Urbano':'#16A34A',
+  'Municipal':'#0891B2','Convencional':'#7C3AED','DER-PL':'#DC2626'
+};
+
+// Agrega dados de um mês por grupo
+function agregaMes(mesData) {
+  return mesData.grupos.map(g => {
+    const vv = g.veiculos;
+    const cb = vv.reduce((a,v)=>a+v.cb,0);
+    const pn = vv.reduce((a,v)=>a+v.pn,0);
+    const mo = vv.reduce((a,v)=>a+v.mo,0);
+    const pc = vv.reduce((a,v)=>a+v.pc,0);
+    const tot = vv.reduce((a,v)=>a+v.tot,0);
+    const km = vv.reduce((a,v)=>a+v.km,0);
+    const ckm = km > 0 ? tot/km : 0;
+    return {id:g.id, nome:GRUPOS_NOMES[g.id]||g.id, veiculos:vv.length, cb, pn, mo, pc, tot, km, ckm, veiArr:vv};
+  });
+}
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let mi = 3; // Abril
+let gSortKey = 'tot', gSortDir = 1;
+
+// ─── MÊS SELECTOR ────────────────────────────────────────────────────────────
+function buildMesBtns() {
+  const c = document.getElementById('mbtns');
+  MESES.forEach((m, i) => {
+    const b = document.createElement('button');
+    b.className = 'mb' + (i===3?' active':'');
+    b.textContent = m;
+    b.onclick = () => setMes(i);
+    c.appendChild(b);
+  });
+}
+function setMes(i) {
+  mi = i;
+  document.querySelectorAll('.mb').forEach((b,j) => b.classList.toggle('active', j===i));
+  document.getElementById('hbadge').textContent = MESES[i] + ' 2026';
+  renderDash();
+  renderGrupo();
+}
+
+// ─── TAB ─────────────────────────────────────────────────────────────────────
+// tab function defined below with anos support
+
+// ─── DASHBOARD ───────────────────────────────────────────────────────────────
+function renderDash() {
+  const mes = MESES[mi];
+  const grupos = agregaMes(DATA[mes]);
+  const totCb = grupos.reduce((a,g)=>a+g.cb,0);
+  const totPn = grupos.reduce((a,g)=>a+g.pn,0);
+  const totMo = grupos.reduce((a,g)=>a+g.mo,0);
+  const totPc = grupos.reduce((a,g)=>a+g.pc,0);
+  const totTot = grupos.reduce((a,g)=>a+g.tot,0);
+  const totKm = grupos.reduce((a,g)=>a+g.km,0);
+  const totVeic = grupos.reduce((a,g)=>a+g.veiculos,0);
+  const totCkm = totKm>0 ? totTot/totKm : 0;
+
+  // KPIs
+  const kpis = [
+    {l:'Custo Total',v:fmtR(totTot),s:MESES[mi]+' 2026',c:'var(--hub-or)'},
+    {l:'Combustível',v:fmtR(totCb),s:((totCb/totTot)*100).toFixed(1)+'% do total',c:'#E8711A'},
+    {l:'Pneus (Reposição)',v:fmtR(totPn),s:((totPn/totTot)*100).toFixed(1)+'% do total',c:'#0891B2'},
+    {l:'Mão de Obra',v:fmtR(totMo),s:((totMo/totTot)*100).toFixed(1)+'% do total',c:'#16A34A'},
+    {l:'Peças',v:fmtR(totPc),s:((totPc/totTot)*100).toFixed(1)+'% do total',c:'#DC2626'},
+    {l:'Km Rodado',v:fmt(totKm),s:'Total da frota',c:'var(--hub-dark)'},
+    {l:'Custo / Km',v:'R$ '+totCkm.toFixed(2),s:'Média geral',c:'#7C3AED'},
+    {l:'Veículos',v:totVeic,s:'Nos grupos ativos',c:'var(--t2)'},
+  ];
+  const kg = document.getElementById('kpis'); kg.innerHTML='';
+  kpis.forEach(k => {
+    const d = document.createElement('div'); d.className='kpi'; d.style.setProperty('--kc',k.c);
+    d.innerHTML=`<div class="kl">${k.l}</div><div class="kv">${k.v}</div><div class="ks">${k.s}</div>`;
+    kg.appendChild(d);
+  });
+
+  // Barras por categoria
+  const cats = [
+    {nome:'Combustível',val:totCb,cor:'#E8711A'},
+    {nome:'Peças',val:totPc,cor:'#DC2626'},
+    {nome:'Mão de Obra',val:totMo,cor:'#16A34A'},
+    {nome:'Pneus',val:totPn,cor:'#0891B2'},
+  ];
+  const maxCat = Math.max(...cats.map(c=>c.val));
+  const cb = document.getElementById('cat-bars'); cb.innerHTML='';
+  // Por grupo
+  grupos.forEach(g => {
+    const card = document.createElement('div'); card.className='cat-card';
+    const gCats = [
+      {nome:'Combustível',val:g.cb,cor:'#E8711A'},
+      {nome:'Peças',val:g.pc,cor:'#DC2626'},
+      {nome:'Mão de Obra',val:g.mo,cor:'#16A34A'},
+      {nome:'Pneus',val:g.pn,cor:'#0891B2'},
+    ];
+    const gMax = Math.max(...gCats.map(c=>c.val), 1);
+    card.innerHTML = `<h3>${g.nome}</h3>` +
+      gCats.map(c => `
+        <div class="bar-row">
+          <span class="bar-label">${c.nome}</span>
+          <div class="bar-wrap"><div class="bar-fill" style="width:${(c.val/gMax*100).toFixed(1)}%;background:${c.cor}"></div></div>
+          <span class="bar-val">${fmtR(c.val)}</span>
+        </div>`).join('') +
+      `<div style="border-top:1px solid var(--bd);margin-top:10px;padding-top:8px;display:flex;justify-content:space-between;font-size:10px;color:var(--t3)">
+        <span><b style="color:var(--tx);font-family:'DM Mono',monospace">${fmtR(g.tot)}</b> total</span>
+        <span>${fmt(g.km)} km · <b style="color:var(--or)">${g.ckm>0?'R$ '+g.ckm.toFixed(2):'—'}/km</b></span>
+      </div>`;
+    cb.appendChild(card);
+  });
+
+  // Tabela resumo
+  const tb = document.getElementById('dash-table'); tb.innerHTML='';
+  grupos.forEach(g => {
+    const tr = document.createElement('tr');
+    tr.onclick = () => openModal(g, mes);
+    tr.innerHTML = `
+      <td style="font-weight:700;color:var(--tx)">${g.nome}</td>
+      <td>${g.veiculos}</td>
+      <td class="tf2">${fmtR(g.cb)}</td>
+      <td class="tf2">${g.pn>0?fmtR(g.pn):'—'}</td>
+      <td class="tf2">${g.mo>0?fmtR(g.mo):'—'}</td>
+      <td class="tf2">${g.pc>0?fmtR(g.pc):'—'}</td>
+      <td class="tf2" style="color:var(--or)">${fmtR(g.tot)}</td>
+      <td style="font-family:'DM Mono',monospace">${fmt(g.km)}</td>
+      <td style="font-family:'DM Mono',monospace;font-weight:700;color:var(--az)">${g.ckm>0?'R$ '+g.ckm.toFixed(2):'—'}</td>`;
+    tb.appendChild(tr);
+  });
+  // Linha totais
+  const tr = document.createElement('tr');
+  tr.style.background='#FAFBFD';tr.style.fontWeight='700';
+  tr.innerHTML=`
+    <td style="color:var(--hub-dark);font-weight:800">TOTAL GERAL</td>
+    <td>${totVeic}</td>
+    <td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(totCb)}</td>
+    <td style="font-family:'DM Mono',monospace">${fmtR(totPn)}</td>
+    <td style="font-family:'DM Mono',monospace">${fmtR(totMo)}</td>
+    <td style="font-family:'DM Mono',monospace">${fmtR(totPc)}</td>
+    <td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(totTot)}</td>
+    <td style="font-family:'DM Mono',monospace">${fmt(totKm)}</td>
+    <td style="font-family:'DM Mono',monospace;color:var(--az)">R$ ${totCkm.toFixed(2)}</td>`;
+  tb.appendChild(tr);
+}
+
+// ─── POR GRUPO ───────────────────────────────────────────────────────────────
+function buildGrupoSel() {
+  const sel = document.getElementById('grupo-sel');
+  Object.entries(GRUPOS_NOMES).forEach(([k,v]) => {
+    const o = document.createElement('option'); o.value=k; o.textContent=v; sel.appendChild(o);
+  });
+}
+function renderGrupo() {
+  const mes = MESES[mi];
+  const gFilter = document.getElementById('grupo-sel').value;
+  const anoFilter = document.getElementById('ano-sel').value;
+  const q = document.getElementById('grupo-search').value.toLowerCase();
+  const grupos = agregaMes(DATA[mes]);
+  let rows = [];
+  grupos.forEach(g => {
+    if(gFilter && g.id !== gFilter) return;
+    g.veiArr.forEach(v => {
+      if(q && !v.p.toLowerCase().includes(q)) return;
+      const ano = ANOS[String(v.p)];
+      if(anoFilter) {
+        if(anoFilter==='antigo' && !(ano && ano<=2013)) return;
+        else if(anoFilter==='medio' && !(ano && ano>=2014 && ano<=2018)) return;
+        else if(anoFilter==='novo' && !(ano && ano>=2019)) return;
+        else if(!['antigo','medio','novo'].includes(anoFilter) && String(ano)!==anoFilter) return;
+      }
+      rows.push({...v, grupo:g.nome, grupo_id:g.id});
+    });
+  });
+  // Sort
+  rows.sort((a,b) => {
+    if(gSortKey==='ano') {
+      const av = ANOS[String(a.p)]||0, bv = ANOS[String(b.p)]||0;
+      return (av-bv)*gSortDir;
+    }
+    const av = a[gSortKey]||0, bv = b[gSortKey]||0;
+    return (av-bv)*gSortDir;
+  });
+  document.getElementById('grupo-cnt').textContent = rows.length + ' veículos';
+  const tb = document.getElementById('grupo-table'); tb.innerHTML='';
+  rows.forEach(v => {
+    const ckm = v.km>0 ? v.tot/v.km : 0;
+    // status simples por custo/km vs media do grupo
+    let pill = '';
+    if(ckm<=0) pill='<span class="pill p-gy">Sem km</span>';
+    else if(ckm>3.5) pill='<span class="pill p-hi">Alto</span>';
+    else if(ckm>2.5) pill='<span class="pill p-md">Médio</span>';
+    else pill='<span class="pill p-ok">Normal</span>';
+    const tr = document.createElement('tr');
+    tr.onclick = () => openVeiculoModal(v);
+    tr.innerHTML = `
+      <td style="font-size:10px;color:var(--t3)">${v.grupo}</td>
+      <td class="tf2">${v.p}</td>
+      <td>${anoTag(v.p)}</td>
+      <td>${fmtR(v.cb)}</td>
+      <td>${v.pn>0?fmtR(v.pn):'—'}</td>
+      <td>${v.mo>0?fmtR(v.mo):'—'}</td>
+      <td>${v.pc>0?fmtR(v.pc):'—'}</td>
+      <td style="font-weight:700;color:var(--or)">${fmtR(v.tot)}</td>
+      <td style="font-family:'DM Mono',monospace">${v.km>0?fmt(v.km):'—'}</td>
+      <td style="font-family:'DM Mono',monospace;font-weight:700;color:var(--az)">${ckm>0?'R$ '+ckm.toFixed(2):'—'}</td>
+      <td>${pill}</td>`;
+    tb.appendChild(tr);
+  });
+}
+function gso(k) {
+  if(gSortKey===k) gSortDir*=-1; else {gSortKey=k;gSortDir=-1;}
+  renderGrupo();
+}
+
+// ─── HISTÓRICO ───────────────────────────────────────────────────────────────
+function renderLinhaChart() {
+  const canvas = document.getElementById('linha-cats');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.parentElement.clientWidth - 48;
+  canvas.height = 280;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Calc data
+  const totais = MESES.map(m => {
+    const gs = agregaMes(DATA[m]);
+    return {
+      mes: m.substring(0,3),
+      cb: gs.reduce((a,g)=>a+g.cb,0),
+      pc: gs.reduce((a,g)=>a+g.pc,0),
+      mo: gs.reduce((a,g)=>a+g.mo,0),
+      pn: gs.reduce((a,g)=>a+g.pn,0),
+      tot: gs.reduce((a,g)=>a+g.tot,0),
+    };
+  });
+
+  const series = [
+    {key:'cb', label:'Combustível', cor:'#E8711A', dash:[]},
+    {key:'pc', label:'Peças',       cor:'#DC2626', dash:[]},
+    {key:'mo', label:'Mão de Obra', cor:'#16A34A', dash:[]},
+    {key:'pn', label:'Pneus',       cor:'#0891B2', dash:[]},
+    {key:'tot',label:'Total',       cor:'#7C3AED', dash:[6,4]},
+  ];
+
+  const pad = {l:80, r:24, t:24, b:48};
+  const W = canvas.width - pad.l - pad.r;
+  const H = canvas.height - pad.t - pad.b;
+  const allVals = series.flatMap(s => totais.map(t => t[s.key]));
+  const maxV = Math.max(...allVals) * 1.08;
+  const minV = 0;
+
+  // Grid lines & Y labels
+  const gridSteps = 5;
+  for(let i=0; i<=gridSteps; i++) {
+    const val = minV + (maxV - minV) * i / gridSteps;
+    const y = pad.t + H - H * i / gridSteps;
+    ctx.beginPath();
+    ctx.strokeStyle = i===0 ? '#CBD5E1' : '#F1F5F9';
+    ctx.lineWidth = i===0 ? 1.5 : 1;
+    ctx.moveTo(pad.l, y);
+    ctx.lineTo(pad.l + W, y);
+    ctx.stroke();
+    // Y label
+    const label = val >= 1000000
+      ? 'R$ ' + (val/1000000).toFixed(1) + 'M'
+      : val >= 1000
+      ? 'R$ ' + (val/1000).toFixed(0) + 'k'
+      : 'R$ ' + val.toFixed(0);
+    ctx.fillStyle = '#9198B4';
+    ctx.font = '10px Outfit, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(label, pad.l - 8, y + 4);
+  }
+
+  // X labels & vertical guides
+  const xStep = W / (MESES.length - 1);
+  MESES.forEach((m, i) => {
+    const x = pad.l + i * xStep;
+    ctx.beginPath();
+    ctx.strokeStyle = '#F1F5F9';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.moveTo(x, pad.t);
+    ctx.lineTo(x, pad.t + H);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#4A5068';
+    ctx.font = 'bold 11px Outfit, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(m.substring(0,3), x, pad.t + H + 20);
+  });
+
+  // Draw lines
+  series.forEach(s => {
+    const points = totais.map((t, i) => ({
+      x: pad.l + i * xStep,
+      y: pad.t + H - H * (t[s.key] - minV) / (maxV - minV),
+      val: t[s.key],
+    }));
+
+    // Area fill (subtle)
+    if(s.dash.length === 0) {
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, pad.t + H);
+      points.forEach(p => ctx.lineTo(p.x, p.y));
+      ctx.lineTo(points[points.length-1].x, pad.t + H);
+      ctx.closePath();
+      ctx.fillStyle = s.cor + '12';
+      ctx.fill();
+    }
+
+    // Line
+    ctx.beginPath();
+    ctx.strokeStyle = s.cor;
+    ctx.lineWidth = s.dash.length ? 2 : 2.5;
+    ctx.setLineDash(s.dash);
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    points.forEach((p, i) => i===0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Dots + value labels
+    points.forEach((p, i) => {
+      // Dot
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 4.5, 0, Math.PI*2);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+      ctx.strokeStyle = s.cor;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Value label above dot (only for non-total to avoid clutter, show all)
+      if(s.key !== 'tot') {
+        const label = p.val >= 1000000
+          ? (p.val/1000000).toFixed(2)+'M'
+          : (p.val/1000).toFixed(0)+'k';
+        ctx.fillStyle = s.cor;
+        ctx.font = 'bold 9px DM Mono, monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('R$'+label, p.x, p.y - 10);
+      }
+    });
+  });
+
+}
+
+function renderHistorico() {
+  // Totais por mês
+  const totaisMes = MESES.map(m => {
+    const gs = agregaMes(DATA[m]);
+    return {
+      mes:m,
+      cb:gs.reduce((a,g)=>a+g.cb,0),
+      pn:gs.reduce((a,g)=>a+g.pn,0),
+      mo:gs.reduce((a,g)=>a+g.mo,0),
+      pc:gs.reduce((a,g)=>a+g.pc,0),
+      tot:gs.reduce((a,g)=>a+g.tot,0),
+      km:gs.reduce((a,g)=>a+g.km,0),
+    };
+  });
+  const ht = document.getElementById('hist-total');
+  ht.innerHTML = `<thead><tr><th>Mês</th><th>Combustível</th><th>Pneus</th><th>Mão de Obra</th><th>Peças</th><th>Total</th><th>Km Rodado</th><th>Custo/Km</th></tr></thead><tbody>` +
+    totaisMes.map(t => `<tr>
+      <td>${t.mes}</td>
+      <td>${fmtR(t.cb)}</td>
+      <td>${fmtR(t.pn)}</td>
+      <td>${fmtR(t.mo)}</td>
+      <td>${fmtR(t.pc)}</td>
+      <td style="font-weight:700;color:var(--or)">${fmtR(t.tot)}</td>
+      <td>${fmt(t.km)}</td>
+      <td style="font-weight:700;color:var(--az)">R$ ${t.km>0?(t.tot/t.km).toFixed(2):'—'}</td>
+    </tr>`).join('') + `</tbody>`;
+
+  // Cards histórico por categoria
+  const hg = document.getElementById('hist-cats'); hg.innerHTML='';
+  const cats = [
+    {nome:'Combustível',key:'cb',cor:'#E8711A'},
+    {nome:'Peças',key:'pc',cor:'#DC2626'},
+    {nome:'Mão de Obra',key:'mo',cor:'#16A34A'},
+    {nome:'Pneus',key:'pn',cor:'#0891B2'},
+  ];
+  cats.forEach(cat => {
+    const vals = totaisMes.map(t=>t[cat.key]);
+    const maxV = Math.max(...vals,1);
+    const card = document.createElement('div'); card.className='hc';
+    card.innerHTML = `<h3 style="color:${cat.cor}">${cat.nome}</h3>` +
+      totaisMes.map(t => `
+        <div class="hr">
+          <span class="hm">${t.mes.substring(0,3)}</span>
+          <div class="hbw"><div class="hbt"><div class="hbf" style="width:${(t[cat.key]/maxV*100).toFixed(1)}%;background:${cat.cor}"></div></div></div>
+          <span class="hv">${fmtR(t[cat.key])}</span>
+        </div>`).join('');
+    hg.appendChild(card);
+  });
+
+  // Tabela por grupo
+  const hg2 = document.getElementById('hist-grupos');
+  const grupoIds = Object.keys(GRUPOS_NOMES);
+  hg2.innerHTML = `<thead><tr><th>Grupo</th>${MESES.map(m=>`<th>${m}</th>`).join('')}<th>Total</th></tr></thead><tbody>` +
+    grupoIds.map(gid => {
+      let grandTotal = 0;
+      const cells = MESES.map(m => {
+        const gs = agregaMes(DATA[m]);
+        const g = gs.find(x=>x.id===gid);
+        if(g) grandTotal += g.tot;
+        return `<td>${g&&g.tot>0?fmtR(g.tot):'—'}</td>`;
+      }).join('');
+      return grandTotal>0 ? `<tr><td>${GRUPOS_NOMES[gid]}</td>${cells}<td style="font-weight:700;color:var(--or)">${fmtR(grandTotal)}</td></tr>` : '';
+    }).join('') +
+    `<tr style="font-weight:800;background:#FAFBFD"><td style="color:var(--hub-dark)">TOTAL GERAL</td>` +
+    MESES.map(m=>{const gs=agregaMes(DATA[m]);const t=gs.reduce((a,g)=>a+g.tot,0);return`<td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(t)}</td>`;}).join('') +
+    `<td style="color:var(--or);font-family:'DM Mono',monospace">${fmtR(MESES.reduce((a,m)=>{const gs=agregaMes(DATA[m]);return a+gs.reduce((b,g)=>b+g.tot,0);},0))}</td></tr>` +
+    `</tbody>`;
+  renderLinhaChart();
+}
+
+// ─── ANÁLISE POR ANO ─────────────────────────────────────────────────────────
+function tab(id, btn) {
+  document.querySelectorAll('.tp').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='historico') renderHistorico();
+  if(id==='anos') renderAnos();
+}
+
+function getAnoColor(ano) {
+  if(!ano) return '#9198B4';
+  if(ano<=2013) return '#DC2626';
+  if(ano<=2018) return '#2D2F8F';
+  return '#16A34A';
+}
+function getAnoBg(ano) {
+  if(!ano) return '#F3F4F6';
+  if(ano<=2013) return '#FEE2E2';
+  if(ano<=2018) return '#EEEEF8';
+  return '#DCFCE7';
+}
+
+function renderAnos() {
+  const wrap = document.getElementById('anos-content');
+  wrap.innerHTML = '';
+
+  // Build per-year data across all months
+  const anosUnicos = [...new Set(Object.values(ANOS))].filter(a=>a).sort();
+  
+  const dadosPorAno = anosUnicos.map(ano => {
+    const porMes = MESES.map(mes => {
+      const grupos = DATA[mes].grupos;
+      let custo=0, km=0, cb=0, pn=0, mo=0, pc=0, veics=new Set();
+      grupos.forEach(g => {
+        g.veiculos.forEach(v => {
+          if(ANOS[String(v.p)] !== ano) return;
+          custo += v.tot; km += v.km;
+          cb += v.cb; pn += v.pn; mo += v.mo; pc += v.pc;
+          veics.add(v.p);
+        });
+      });
+      return {mes, custo, km, cb, pn, mo, pc, veics:veics.size, ckm: km>0?custo/km:0};
+    });
+    const totCusto = porMes.reduce((a,m)=>a+m.custo,0);
+    const totKm    = porMes.reduce((a,m)=>a+m.km,0);
+    const totVeics = [...new Set(MESES.flatMap(mes => {
+      return DATA[mes].grupos.flatMap(g =>
+        g.veiculos.filter(v=>ANOS[String(v.p)]===ano).map(v=>v.p)
+      );
+    }))].length;
+    return {ano, porMes, totCusto, totKm, ckm: totKm>0?totCusto/totKm:0, veics:totVeics};
+  }).filter(d => d.totCusto > 0);
+
+  // ── SECTION: Custo/Km por Ano (bar chart visual) ──────────────────────────
+  const st1 = document.createElement('div'); st1.className='st';
+  st1.innerHTML='Custo/Km por Ano de Fabricação — Comparativo';
+  wrap.appendChild(st1);
+
+  const maxCkm = Math.max(...dadosPorAno.map(d=>d.ckm), 0.1);
+  const barCard = document.createElement('div');
+  barCard.style.cssText = 'background:#fff;border:1px solid var(--bd);border-radius:12px;padding:24px;margin-bottom:24px';
+  barCard.innerHTML = dadosPorAno.map(d => {
+    const pct = (d.ckm/maxCkm*100).toFixed(1);
+    const cor = getAnoColor(d.ano);
+    const bg = getAnoBg(d.ano);
+    const label = d.ano<=2013?'Antigo':d.ano<=2018?'Intermediário':'Novo';
+    return `<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="width:44px;text-align:right;font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:${cor};flex-shrink:0">${d.ano}</div>
+      <div style="flex:1;height:28px;background:#F4F4F6;border-radius:6px;overflow:hidden;position:relative">
+        <div style="height:100%;width:${pct}%;background:${cor};border-radius:6px;display:flex;align-items:center;padding:0 10px;min-width:80px">
+          <span style="font-size:11px;font-weight:700;color:#fff;font-family:'DM Mono',monospace;white-space:nowrap">R$ ${d.ckm.toFixed(2)}/km</span>
+        </div>
+      </div>
+      <span style="background:${bg};color:${cor};font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px;width:90px;text-align:center;flex-shrink:0">${label}</span>
+      <span style="font-size:10px;color:#9198B4;width:70px;text-align:right;flex-shrink:0">${d.veics} veíc.</span>
+    </div>`;
+  }).join('');
+  wrap.appendChild(barCard);
+
+  // ── SECTION: Cards por Ano ────────────────────────────────────────────────
+  const st2 = document.createElement('div'); st2.className='st';
+  st2.innerHTML='Resumo por Ano de Fabricação — Jan a Abr 2026';
+  wrap.appendChild(st2);
+
+  const cardsGrid = document.createElement('div');
+  cardsGrid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px';
+  dadosPorAno.forEach(d => {
+    const cor = getAnoColor(d.ano);
+    const bg = getAnoBg(d.ano);
+    const card = document.createElement('div');
+    card.style.cssText = `background:#fff;border:1px solid var(--bd);border-radius:12px;padding:16px;border-top:3px solid ${cor};cursor:pointer;transition:transform .2s,box-shadow .2s`;
+    card.onmouseenter = () => { card.style.transform='translateY(-2px)'; card.style.boxShadow='0 6px 20px rgba(0,0,0,.1)'; };
+    card.onmouseleave = () => { card.style.transform=''; card.style.boxShadow=''; };
+    const label = d.ano<=2013?'⚠ Antigo':d.ano<=2018?'Intermediário':'✓ Novo';
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:20px;font-weight:800;color:${cor};font-family:'DM Mono',monospace">${d.ano}</span>
+        <span style="background:${bg};color:${cor};font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">${label}</span>
+      </div>
+      <div style="font-size:18px;font-weight:800;color:#1A1D2E;margin-bottom:2px">${fmtR(d.totCusto)}</div>
+      <div style="font-size:10px;color:#9198B4;margin-bottom:10px">Custo total Jan–Abr</div>
+      <div style="border-top:1px solid var(--bd);padding-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        <div>
+          <div style="font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:#9198B4;font-weight:600">R$/km</div>
+          <div style="font-size:15px;font-weight:800;font-family:'DM Mono',monospace;color:${cor}">${d.ckm>0?'R$ '+d.ckm.toFixed(2):'—'}</div>
+        </div>
+        <div>
+          <div style="font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:#9198B4;font-weight:600">Veículos</div>
+          <div style="font-size:15px;font-weight:800;font-family:'DM Mono',monospace;color:#1A1D2E">${d.veics}</div>
+        </div>
+      </div>`;
+    cardsGrid.appendChild(card);
+  });
+  wrap.appendChild(cardsGrid);
+
+  // ── SECTION: Tabela mensal por ano ────────────────────────────────────────
+  const st3 = document.createElement('div'); st3.className='st';
+  st3.innerHTML='Evolução Mensal por Ano de Fabricação';
+  wrap.appendChild(st3);
+
+  const tblWrap = document.createElement('div');
+  tblWrap.style.cssText = 'background:#fff;border:1px solid var(--bd);border-radius:12px;overflow-x:auto;margin-bottom:24px';
+  let th = `<table class="ht" style="min-width:750px"><thead><tr>
+    <th style="text-align:left">Ano</th>
+    <th style="text-align:left">Faixa</th>
+    ${MESES.map(m=>`<th>Custo ${m}</th>`).join('')}
+    <th>Total</th>
+    <th>Custo/Km</th>
+    <th>Veíc.</th>
+  </tr></thead><tbody>`;
+  let trows = '';
+  dadosPorAno.forEach((d,i) => {
+    const cor = getAnoColor(d.ano);
+    const bg = i%2===0?'#fff':'#FAFBFD';
+    const label = d.ano<=2013?'⚠ Antigo':d.ano<=2018?'Intermediário':'✓ Novo';
+    trows += `<tr style="background:${bg}">
+      <td style="font-weight:800;color:${cor};font-family:'DM Mono',monospace">${d.ano}</td>
+      <td><span style="background:${getAnoBg(d.ano)};color:${cor};font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px">${label}</span></td>
+      ${d.porMes.map(m=>`<td style="color:${cor};font-weight:600">${m.custo>0?fmtR(m.custo):'—'}</td>`).join('')}
+      <td style="font-weight:800;color:${cor}">${fmtR(d.totCusto)}</td>
+      <td style="font-weight:800;color:${cor}">${d.ckm>0?'R$ '+d.ckm.toFixed(2):'—'}</td>
+      <td>${d.veics}</td>
+    </tr>`;
+  });
+  // Total row
+  const grandTot = dadosPorAno.reduce((a,d)=>a+d.totCusto,0);
+  const grandKm  = dadosPorAno.reduce((a,d)=>a+d.totKm,0);
+  trows += `<tr style="background:#FAFBFD;font-weight:800;border-top:2px solid var(--bd)">
+    <td style="color:var(--hub-dark)">TOTAL</td><td></td>
+    ${MESES.map(mes=>{
+      const t=dadosPorAno.reduce((a,d)=>{const m=d.porMes.find(x=>x.mes===mes);return a+(m?m.custo:0);},0);
+      return `<td style="color:var(--or)">${fmtR(t)}</td>`;
+    }).join('')}
+    <td style="color:var(--or)">${fmtR(grandTot)}</td>
+    <td style="color:var(--az)">${grandKm>0?'R$ '+(grandTot/grandKm).toFixed(2):'—'}</td>
+    <td></td>
+  </tr>`;
+  tblWrap.innerHTML = th + trows + '</tbody></table>';
+  wrap.appendChild(tblWrap);
+
+  // ── SECTION: Insight automático ───────────────────────────────────────────
+  const mais_caro = dadosPorAno.reduce((a,b)=>b.ckm>a.ckm?b:a);
+  const mais_barato = dadosPorAno.filter(d=>d.ckm>0).reduce((a,b)=>b.ckm<a.ckm?b:a);
+  if(mais_caro && mais_barato && mais_caro.ano !== mais_barato.ano) {
+    const diff = ((mais_caro.ckm - mais_barato.ckm)/mais_barato.ckm*100).toFixed(0);
+    const economia = (mais_caro.veics * (mais_caro.ckm - mais_barato.ckm) * mais_caro.totKm / mais_caro.veics).toFixed(0);
+    const insight = document.createElement('div');
+    insight.style.cssText = 'background:#FEF3C7;border:1px solid #FDE047;border-radius:12px;padding:20px;display:flex;align-items:flex-start;gap:14px;margin-bottom:24px';
+    insight.innerHTML = `
+      <div style="font-size:28px;flex-shrink:0">⚠️</div>
+      <div>
+        <div style="font-size:14px;font-weight:800;color:#713F12;margin-bottom:6px">Impacto Financeiro da Frota Antiga</div>
+        <div style="font-size:12px;color:#92400E;line-height:1.8">
+          O ano <b>${mais_caro.ano}</b> tem o maior custo por km: <b>R$ ${mais_caro.ckm.toFixed(2)}/km</b>.<br>
+          O ano <b>${mais_barato.ano}</b> tem o menor custo por km: <b>R$ ${mais_barato.ckm.toFixed(2)}/km</b>.<br>
+          Diferença de <b>${diff}% a mais</b> por quilômetro nos veículos mais antigos.<br>
+          <span style="display:inline-block;margin-top:4px;background:#FDE047;padding:4px 10px;border-radius:6px;font-weight:700">
+            💡 Substituir os ${mais_caro.veics} veículos de ${mais_caro.ano} pelo padrão de ${mais_barato.ano} 
+            representaria uma economia estimada de <b>${fmtR(Number(economia))}</b> no período Jan–Abr.
+          </span>
+        </div>
+      </div>`;
+    wrap.appendChild(insight);
+  }
+}
+
+// ─── MODAL ───// ─── MODAL ───────────────────────────────────────────────────────────────────
+function openModal(grupo, mes) {
+  document.getElementById('modal-title').textContent = grupo.nome;
+  document.getElementById('modal-sub').textContent = `${mes} 2026 · ${grupo.veiculos} veículos`;
+  const mk = document.getElementById('modal-kpis'); mk.innerHTML='';
+  [{l:'Custo Total',v:fmtR(grupo.tot)},{l:'Combustível',v:fmtR(grupo.cb)},{l:'Peças',v:fmtR(grupo.pc)},{l:'Custo/Km',v:grupo.ckm>0?'R$ '+grupo.ckm.toFixed(2):'—'}]
+    .forEach(k => {
+      const d=document.createElement('div');d.className='mini-kpi';
+      d.innerHTML=`<div class="kl">${k.l}</div><div class="kv">${k.v}</div>`;
+      mk.appendChild(d);
+    });
+  // Tabela por veículo
+  const mh = document.getElementById('modal-hist');
+  mh.innerHTML = `<thead><tr><th>Prefixo</th><th>Combustível</th><th>Pneus</th><th>Mão de Obra</th><th>Peças</th><th>Total</th><th>Km</th><th>R$/km</th></tr></thead><tbody>` +
+    grupo.veiArr.sort((a,b)=>b.tot-a.tot).map(v => {
+      const ckm = v.km>0?v.tot/v.km:0;
+      return `<tr>
+        <td style="font-weight:700">${v.p}</td>
+        <td>${fmtR(v.cb)}</td>
+        <td>${v.pn>0?fmtR(v.pn):'—'}</td>
+        <td>${v.mo>0?fmtR(v.mo):'—'}</td>
+        <td>${v.pc>0?fmtR(v.pc):'—'}</td>
+        <td style="font-weight:700;color:var(--or)">${fmtR(v.tot)}</td>
+        <td>${v.km>0?fmt(v.km):'—'}</td>
+        <td style="font-weight:700;color:var(--az)">${ckm>0?'R$ '+ckm.toFixed(2):'—'}</td>
+      </tr>`;
+    }).join('') + `</tbody>`;
+  document.getElementById('modal-bg').classList.add('open');
+}
+
+function openVeiculoModal(v) {
+  document.getElementById('modal-title').textContent = 'Prefixo ' + v.p;
+  document.getElementById('modal-sub').textContent = v.grupo + ' · Evolução Jan–Abr 2026';
+  const mk = document.getElementById('modal-kpis'); mk.innerHTML='';
+  const ckm = v.km>0?v.tot/v.km:0;
+  const anoV = ANOS[String(v.p)];
+  [{l:'Custo Total (mês)',v:fmtR(v.tot)},{l:'Ano de Fabricação',v:anoV||'—'},{l:'Peças',v:fmtR(v.pc)},{l:'Custo/Km',v:ckm>0?'R$ '+ckm.toFixed(2):'—'}]
+    .forEach(k => {
+      const d=document.createElement('div');d.className='mini-kpi';
+      d.innerHTML=`<div class="kl">${k.l}</div><div class="kv">${k.v}</div>`;
+      mk.appendChild(d);
+    });
+  // Histórico do veículo
+  const hist = MESES.map(m => {
+    const gs = DATA[m].grupos;
+    for(const g of gs) {
+      const vei = g.veiculos.find(x=>x.p===v.p);
+      if(vei) return {mes:m,...vei};
+    }
+    return {mes:m,cb:0,pn:0,mo:0,pc:0,tot:0,km:0};
+  });
+  const mh = document.getElementById('modal-hist');
+  mh.innerHTML = `<thead><tr><th>Mês</th><th>Combustível</th><th>Pneus</th><th>Mão de Obra</th><th>Peças</th><th>Total</th><th>Km</th><th>R$/km</th></tr></thead><tbody>` +
+    hist.map(h => {
+      const ckm = h.km>0?h.tot/h.km:0;
+      return `<tr>
+        <td style="font-weight:700">${h.mes}</td>
+        <td>${fmtR(h.cb)}</td>
+        <td>${h.pn>0?fmtR(h.pn):'—'}</td>
+        <td>${h.mo>0?fmtR(h.mo):'—'}</td>
+        <td>${h.pc>0?fmtR(h.pc):'—'}</td>
+        <td style="font-weight:700;color:var(--or)">${fmtR(h.tot)}</td>
+        <td>${h.km>0?fmt(h.km):'—'}</td>
+        <td style="font-weight:700;color:var(--az)">${ckm>0?'R$ '+ckm.toFixed(2):'—'}</td>
+      </tr>`;
+    }).join('') + `</tbody>`;
+  document.getElementById('modal-bg').classList.add('open');
+}
+
+function closeModal(e) {
+  if(e.target===document.getElementById('modal-bg'))
+    document.getElementById('modal-bg').classList.remove('open');
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+buildMesBtns();
+buildGrupoSel();
+setMes(3);
+</script>
+</body>
+</html>
